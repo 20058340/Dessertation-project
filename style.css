@@ -49,6 +49,15 @@ body{
     color: white;
 }
 
+.side-navbar-link{
+    margin-bottom: 30px;
+}
+
+.side-navbar-links a{
+    text-decoration: none;
+    color: white;
+}
+
 /* Media Query */
 
 @media screen and (max-width: 600px){
