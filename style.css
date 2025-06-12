@@ -83,6 +83,18 @@ body{
     background-color: #1d232c;
     color: white;
 }
+
+/*Serive*/
+
+.service{
+    padding: 20px;
+}
+
+.service-container-1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 /* Media Query */
 
 @media screen and (max-width: 600px){
