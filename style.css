@@ -36,6 +36,19 @@ body{
     display: none;
 }
 
+/* Side navbar */
+
+.side-navbar{
+    background-color: #1d232c;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    color: white;
+}
+
 /* Media Query */
 
 @media screen and (max-width: 600px){
