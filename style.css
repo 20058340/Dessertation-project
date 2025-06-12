@@ -47,16 +47,23 @@ body{
     left: 0;
     padding: 20px;
     color: white;
+    display: none;
 }
 
 .side-navbar-link{
     margin-bottom: 30px;
 }
 
+.side-navbar-links a:hover{
+    text-decoration: underline;
+    color: white;
+}
+
 .side-navbar-links a{
     text-decoration: none;
     color: white;
 }
+
 
 /* Media Query */
 
