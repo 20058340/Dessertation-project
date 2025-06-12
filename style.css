@@ -44,7 +44,7 @@ body{
     height: 100%;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -60%;
     padding: 20px;
     color: white;
     transition: 2s;
