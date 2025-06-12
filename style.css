@@ -93,5 +93,9 @@ body{
     .navbar-links{
         display: none;
     }
+
+    .header_img{
+        display:none;
+    }
     
 }
