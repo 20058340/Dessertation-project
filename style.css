@@ -146,6 +146,146 @@ body{
     border: none;
 }
 
+/*News*/
+.news{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7%;
+}
+
+/*Contact*/
+
+#contact {
+    background: #f8f9fa;
+    padding: 6rem 0 8rem; /* increased top padding from 4rem to 6rem */
+    margin-top: 5%;     /* optional: adds space outside the section */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+    color: #333;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+#form-container {
+    width: 58%;
+    background: #fff;
+    padding: 3rem;
+    box-sizing: border-box;
+    height: 0%;
+}
+
+#form-container h3 {
+    color: #000;
+    font-family: "Playfair Display", serif;
+    margin-bottom: 2rem;
+}
+
+#form-container label {
+    display: block;
+    color: #000;
+    margin-top: 1rem;
+}
+
+#form-container input,
+#form-container textarea {
+    display: block;
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    width: 100%;
+    box-sizing: border-box;
+    height: 43px;
+    font-family: "Roboto", "Helvetica", "Sans-serif";
+    font-size: 1rem;
+    color: #495057;
+}
+
+#form-container textarea {
+    height: 170px;
+    margin-bottom: 2rem;
+    resize: none;
+}
+
+#address-container {
+    width: 38%;
+    background: #fff;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    height: 0%;
+}
+
+#address-container label {
+    font-weight: 700;
+    display: block;
+    margin-top: 1.5rem; /* Add some top margin for spacing */
+}
+
+
+#address-container label:first-child {
+    margin-top: 0;
+}
+
+#address-container address {
+    margin-bottom: 10%;
+    font-style: normal;
+    margin-right: 10%;
+    
+}
+
+#address-container a {
+    text-decoration: none;
+    color: #f69314;
+    display: block;          /* Makes each link stack vertically */
+    margin-bottom: 1rem;     /* Adds spacing below each link */
+}
+
+
+#address-container a:hover {
+    text-decoration: underline;
+}
+.flex {
+    display: flex;
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    gap: 2rem; 
+    align-items: flex-start;
+}
+button.rounded {
+    background-color: #f69314;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+button.rounded:hover {
+    background-color: #e67e0c;
+}
+
+.container {
+    max-width: 1200px;  /* or 960px, 1200px depending on your preference */
+    margin: 0 auto;     /* centers it horizontally */
+    padding: 0 1rem;    /* adds small left/right space for mobile */
+    box-sizing: border-box;
+}
+
+
+
+
 
 
 /* Media Query */
