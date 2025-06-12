@@ -24,6 +24,8 @@
 
 <body>
 
+    <script src="index.js" defer> </script>
+
     <nav class="navbar">
         <h1>Nostra</h1>
 
@@ -34,15 +36,17 @@
 
         </div>
 
-        <div class="navbar-menu-toggle">
+        <div class="navbar-menu-toggle" onclick="showNavbar()">
             <i class="fa-solid fa-bars"></i>
         </div>
+
+        
     </nav>
 
         <!--Side navbar-->
 
         <div class="side-navbar">
-            <p style="text-align: right;">
+            <p style="text-align: right;" onclick="closeNavbar()">
                 <i class="fa-solid fa-xmark"></i>
             </p>
 
