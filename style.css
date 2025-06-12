@@ -109,7 +109,16 @@ body{
     border-radius: 10px;
     padding: 20px;
     transition: all 0.3s ease;
+    gap: 20px;
 }
+.service-container-2 div {
+    margin-right: 20px;
+}
+
+.service-container-2 div:last-child {
+    margin-right: 0;
+}
+
 .service-container-2 :hover {
     background-color: #dbdde1;
     transform: translateY(-5px);
