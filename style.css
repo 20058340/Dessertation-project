@@ -9,6 +9,14 @@ body{
 
 }
 
+.navbar h1 {
+  font-size: 28px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+
 .navbar{
     display: flex;
     justify-content: space-between; 
@@ -185,9 +193,10 @@ body{
 
 #contact {
     background: #f8f9fa;
-    padding: 6rem 0 8rem; /* increased top padding from 4rem to 6rem */
-    margin-top: 5%;     /* optional: adds space outside the section */
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 8rem 0 10rem; 
+    margin-top: 5%;     
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 
@@ -339,7 +348,7 @@ footer h5.follow-us {
 footer .footer-about {
     width: 50%;
     font-style: normal;
-    color: #ffffff;
+    color:#ced4da;
 }
 
 footer .footer-about p {
@@ -361,7 +370,7 @@ footer .footer-quick-links ul li {
 }
 
 footer .footer-quick-links ul li a {
-    color: #777;
+    color: #ced4da;
     text-decoration: none;
 }
 
@@ -449,7 +458,45 @@ footer small a:hover {
     color: #fff;
 }
 
+/* Collections*/
 
+.product-section{
+    margin-top: 20px;
+}
+
+.product-search{
+    width: 80%;
+    border: solid black 2px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+}
+
+.product-search input{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+}
+
+.product-search input{
+    outline: none;
+}
+
+.products{
+    padding: 20px;
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-box{
+    text-align: center;
+    flex-basis: 20%;
+}
 
 
 
