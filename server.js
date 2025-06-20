@@ -23,6 +23,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
 
+//To open login page by default//
 app.use(express.static(path.join(__dirname, "public")));
 
 // Register route
