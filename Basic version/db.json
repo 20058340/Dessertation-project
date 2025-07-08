@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "name": "barath",
+      "email": "barathm0114@gmail.com",
+<<<<<<< HEAD
+      "password": "12345"
+=======
+      "password": "$2b$10$kjd1512BTRPaxTZqepNNuefYr.mtjDBnV7e8.vJ4FsMlDjVFUysS6"
+>>>>>>> 3d028248b627d12fb461cfa0d13fb73c470d5578
+    }
+  ]
+}
