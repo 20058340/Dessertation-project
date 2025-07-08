@@ -1,5 +1,3 @@
-console.log(" login.js loaded");
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById('loginForm');
 
@@ -24,13 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        console.log("Token received:", data.token);
-
-        // Store the JWT token in localStorage
-        localStorage.setItem("jwtToken", data.token);
-
-        alert('Login successful! Redirecting...');
-        window.location.href = 'index.html'; 
+        alert('Login successful');
+        window.location.href = 'index.html'; // or dashboard.html
       } else if (data.message === 'User not found') {
         alert('User not found. Redirecting to registration...');
         window.location.href = 'register.html';
@@ -39,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     } catch (error) {
       alert('Unable to connect to server.');
-      console.error(" Error:", error);
+      console.error(error);
     }
   });
 });
