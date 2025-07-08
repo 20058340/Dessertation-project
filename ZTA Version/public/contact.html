@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostra</title>
+
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!--My CSS-->
+
+    <link rel="stylesheet" href="style.css">
+
+    <!--Font Awesome icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <script src="contact.js" defer> </script>
+
+    <nav class="navbar">
+        <h1>Nostra</h1>
+
+        <div class="navbar-links">
+            <p class="navbar-link"><a href="index.html">Home</a></p>
+            <p class="navbar-link"><a href="collections.html">Collections</a></p>
+            <p class="navbar-link"><a href="contact.html">Contact</a></p>
+
+        </div>
+
+        <div class="navbar-menu-toggle" onclick="showNavbar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        
+    </nav>
+
+        <!--Side navbar-->
+
+        <div class="side-navbar">
+            <p style="text-align: right;" onclick="closeNavbar()">
+                <i class="fa-solid fa-xmark"></i>
+            </p>
+
+            <div class="side-navbar-links">
+                <p class="side-navbar-link"><a href="index.html">Home</a></p>
+                <p class="side-navbar-link"><a href="collections.html">Collections</a></p>
+                <p class="side-navbar-link"><a href="contact.html">Contact</a></p>
+            </div>
+
+            
+        </div>
+
+
+        <!--Contact form-->
+   <div class="container">
+    <section id="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+
+                <div class="flex">
+                    <div id="form-container">
+                        <h3>Contact Form</h3>
+                        <form>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" />
+
+                            <label for="email">Email</label>
+                            <input type="text" id="email" />
+
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" />
+
+                            <label for="message">Message</label>
+                            <textarea id="message">Write your message here..</textarea>
+
+                            <button class="rounded">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div id="address-container">
+                        <label>Address</label>
+                        <address>
+                           74, East Wharf , East wall Road, Dublin 03
+                        </address>
+
+                        <label>Phone</label>
+                        <a href="#">089456123</a>
+
+                        <label>Email Address</label>
+                        <a href="#">nostra001@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+
+   
+
+       
+
+
+        <!--Footer-->
+        <div>
+            <footer>
+            <div class="flex container">
+                <div class="footer-about">
+                    <h5>About Stated</h5>
+                    <p>At Nostra, we believe fashion is more than just clothing — it's confidence, creativity, and self-expression.</p>
+                    <p>curate high-quality styles that fit your life, your vibe, and your story.</p>
+            </div>
+
+            <div class="footer-quick-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-subscribe">
+                <h5>Subscribe to our Newsletter</h5>
+                <div id="subscribe-container">
+                    <input type="text" placeholder="Enter Email" />
+                    <button class="right-rounded">Send</button>
+            </div>
+
+                <h5 class="follow-us">Follow Us</h5>
+                <ul>
+                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <small>
+            Copyright © 2025 All rights reserved | This template is made for my Dessertation <span class="fa fa-heart"></span> by <a href="https://github.com/20058340/Dessertation-project">github</a>
+        </small>
+    </footer>
+
+        </div>
+    </body>
+
+</html>
