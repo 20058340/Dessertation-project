@@ -61,8 +61,10 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
     <script src="index.js" defer> </script>
 
-<!-- JWT token protecting in network tab -->    
-    <p id="userInfo">Loading user info...</p>
+<!-- JWT token protecting in network -->
+    <div class="userInfo">
+        <p id="userInfo">Loading user info...</p>
+    </div>    
 
 <script>
   const token = localStorage.getItem("jwtToken");
@@ -85,8 +87,9 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
       return res.json();
     })
     .then((data) => {
-      document.getElementById("userInfo").innerText = `Hello, ${data.user}!`;
+      document.getElementById("userInfo").innerText = `Hello, ${data.user.name}!`;
     })
+    
     .catch((err) => {
       console.error("Access denied:", err);
       alert("Access denied. Redirecting to login...");
