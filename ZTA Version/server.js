@@ -16,6 +16,25 @@ const adapter = new FileSync(path.join(__dirname, "db.json"));
 const db = low(adapter);
 db.defaults({ users: [] }).write();
 
+
+function verifyToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; // format: "Bearer TOKEN"
+
+  if (!token) {
+    return res.status(401).json({ message: 'Token missing' });
+  }
+
+  jwt.verify(token, JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(403).json({ message: 'Invalid token' });
+    }
+
+    req.user = decoded;
+    next();
+  });
+}
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -78,6 +97,17 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ success: false, message: "Login error" });
   }
 });
+
+
+// Verify token
+app.get('/api/profile', verifyToken, (req, res) => {
+  // You can also fetch more user data here from db
+  res.json({
+    message: 'Access granted ✅',
+    user: req.user.email
+  });
+});
+
 
 // Start the server
 app.listen(PORT, () => {

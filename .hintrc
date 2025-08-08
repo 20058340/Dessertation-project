@@ -10,6 +10,10 @@
       {
         "link-name": "off"
       }
-    ]
+    ],
+    "meta-charset-utf-8": "off",
+    "meta-viewport": "off",
+    "axe/language": "off",
+    "axe/forms": "off"
   }
 }

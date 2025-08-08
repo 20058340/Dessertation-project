@@ -60,6 +60,39 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
 
     <script src="index.js" defer> </script>
+    <p id="userInfo">Loading user info...</p>
+
+<script>
+  const token = localStorage.getItem("jwtToken");
+
+  if (!token) {
+    alert("No token found. Please login.");
+    window.location.href = "login.html";
+  }
+
+  fetch("http://localhost:3000/api/profile", {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + token
+    }
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Unauthorized");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      document.getElementById("userInfo").innerText = `Hello, ${data.user}!`;
+    })
+    .catch((err) => {
+      console.error("Access denied:", err);
+      alert("Access denied. Redirecting to login...");
+      window.location.href = "login.html";
+    });
+</script>
+
+    
 
     <nav class="navbar">
         <h1>Nostra</h1>
