@@ -100,16 +100,43 @@ app.post("/login", async (req, res) => {
 
 
 // Verify token
-app.get('/api/profile', verifyToken, (req, res) => {
-  // You can also fetch more user data here from db
-  res.json({
-    message: 'Access granted ✅',
-    user: req.user.email
-  });
+// ✅ Protected profile route
+app.get('/api/profile', (req, res) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ message: 'No token provided' });
+  }
+
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+
+    // ✅ Fetch the full user from the DB
+    const user = db.get('users').find({ email: decoded.email }).value();
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json({
+      message: "Access granted ✅",
+      user: {
+        name: user.name,
+        email: user.email
+      }
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(401).json({ message: 'Invalid token' });
+  }
 });
+
 
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(` Server running at http://localhost:${PORT}`);
 });

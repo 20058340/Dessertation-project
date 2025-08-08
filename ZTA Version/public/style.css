@@ -44,6 +44,38 @@ body{
     display: none;
 }
 
+/* User Info Bar Styling */
+        .userInfo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            color: #1d232c;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .userInfo p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .userInfo button {
+            background-color: #1d232c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .userInfo button:hover {
+            background-color: #343a40;
+        }
+
+
 /* Side navbar */
 
 .side-navbar{
