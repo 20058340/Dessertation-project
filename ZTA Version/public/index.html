@@ -75,6 +75,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
 <script>
   const token = localStorage.getItem("jwtToken");
+  const role = localStorage.getItem("userRole");
 
   if (!token) {
     alert("No token found. Please login.");
@@ -95,13 +96,35 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     })
     .then((data) => {
       document.getElementById("userInfo").innerText = `Hello, ${data.user.name}!`;
+
+      // If admin, add Admin Panel link
+      if (role === "admin") {
+        const adminLink = document.createElement("p");
+        adminLink.classList.add("navbar-link");
+        adminLink.innerHTML = `<a href="admin.html">Admin Panel</a>`;
+        document.querySelector(".navbar-links").appendChild(adminLink);
+
+        // Add to sidebar too
+        const adminSideLink = document.createElement("p");
+        adminSideLink.classList.add("side-navbar-link");
+        adminSideLink.innerHTML = `<a href="admin.html">Admin Panel</a>`;
+        document.querySelector(".side-navbar-links").appendChild(adminSideLink);
+      }
     })
+
+    
     
     .catch((err) => {
       console.error("Access denied:", err);
       alert("Access denied. Redirecting to login...");
       window.location.href = "login.html";
     });
+    // Logout
+  document.getElementById("logoutBtn")?.addEventListener("click", () => {
+    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("userRole");
+    window.location.href = "login.html";
+  });
 </script>
 
     
