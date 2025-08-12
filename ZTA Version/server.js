@@ -9,48 +9,49 @@ const jwt = require("jsonwebtoken");
 const app = express();
 const PORT = 3000;
 const saltRounds = 10;
-const JWT_SECRET = "your_super_secret_key"; // Change this in real apps
+const JWT_SECRET = "your_super_secret_key";
 
 // Setup lowdb
 const adapter = new FileSync(path.join(__dirname, "db.json"));
 const db = low(adapter);
 db.defaults({ users: [] }).write();
 
-
+// Middleware: verify token
 function verifyToken(req, res, next) {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1]; // format: "Bearer TOKEN"
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
 
-  if (!token) {
-    return res.status(401).json({ message: 'Token missing' });
-  }
+  if (!token) return res.status(401).json({ message: "Token missing" });
 
   jwt.verify(token, JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(403).json({ message: 'Invalid token' });
-    }
-
+    if (err) return res.status(403).json({ message: "Invalid token" });
     req.user = decoded;
     next();
   });
 }
 
-// Middleware
+// Middleware: role check
+function authorizeRoles(...allowedRoles) {
+  return (req, res, next) => {
+    if (!allowedRoles.includes(req.user.role)) {
+      return res.status(403).json({ message: "Access denied: insufficient permissions" });
+    }
+    next();
+  };
+}
+
 app.use(cors());
 app.use(express.json());
 
-
-// Default route → login.html
+// Default route
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use(express.static(path.join(__dirname, "public"))); // serve frontend
-
-// Register route
+// REGISTER
 app.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
-
+  const { name, email, password, role } = req.body;
   const existingUser = db.get("users").find({ email }).value();
   if (existingUser) {
     return res.status(400).json({ success: false, message: "User already exists" });
@@ -58,8 +59,12 @@ app.post("/register", async (req, res) => {
 
   try {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const newUser = { name, email, password: hashedPassword };
-
+    const newUser = {
+      name,
+      email,
+      password: hashedPassword,
+      role: role || "user" // default
+    };
     db.get("users").push(newUser).write();
 
     res.status(201).json({ success: true, message: "User registered successfully" });
@@ -69,14 +74,12 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// Login route
+// LOGIN
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-
   const user = db.get("users").find({ email }).value();
-  if (!user) {
-    return res.status(404).json({ success: false, message: "User not found" });
-  }
+
+  if (!user) return res.status(404).json({ success: false, message: "User not found" });
 
   try {
     const passwordMatch = await bcrypt.compare(password, user.password);
@@ -84,13 +87,17 @@ app.post("/login", async (req, res) => {
       return res.status(401).json({ success: false, message: "Incorrect password" });
     }
 
-    // Create JWT token
-    const token = jwt.sign({ email: user.email }, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign(
+      { email: user.email, role: user.role },
+      JWT_SECRET,
+      { expiresIn: "1h" }
+    );
 
     res.status(200).json({
       success: true,
       message: "Login successful",
       token,
+      role: user.role
     });
   } catch (err) {
     console.error(err);
@@ -98,45 +105,26 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// PROFILE
+app.get("/api/profile", verifyToken, (req, res) => {
+  const user = db.get("users").find({ email: req.user.email }).value();
+  if (!user) return res.status(404).json({ message: "User not found" });
 
-// Verify token
-// ✅ Protected profile route
-app.get('/api/profile', (req, res) => {
-  const authHeader = req.headers.authorization;
-
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return res.status(401).json({ message: 'No token provided' });
-  }
-
-  const token = authHeader.split(' ')[1];
-
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-
-    // ✅ Fetch the full user from the DB
-    const user = db.get('users').find({ email: decoded.email }).value();
-
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+  res.json({
+    message: "Access granted ✅",
+    user: {
+      name: user.name,
+      email: user.email,
+      role: user.role
     }
-
-    res.json({
-      message: "Access granted ✅",
-      user: {
-        name: user.name,
-        email: user.email
-      }
-    });
-
-  } catch (err) {
-    console.error(err);
-    res.status(401).json({ message: 'Invalid token' });
-  }
+  });
 });
 
+// ADMIN ONLY
+app.get("/api/admin-data", verifyToken, authorizeRoles("admin"), (req, res) => {
+  res.json({ message: "Welcome Admin 🚀 Here is your secret data" });
+});
 
-
-// Start the server
 app.listen(PORT, () => {
   console.log(` Server running at http://localhost:${PORT}`);
 });
