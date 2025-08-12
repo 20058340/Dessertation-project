@@ -14,6 +14,21 @@
       "name": "Barath",
       "email": "barathm0000@gmail.com",
       "password": "$2b$10$gbLSrcqfLk4SjYfJme2Jf.mFSIy8meGCtnjyZguqD9wiuqBJvkaAy"
+    },
+    {
+      "name": "Gokul",
+      "email": "gokuk000@gmail.com",
+      "password": "$2b$10$VtNDU7H0LD656xYt9C.UiuK00BaT8HvavvkHd2nG53JU6vZNLzm/G"
+    },
+    {
+      "name": "Barath Mani",
+      "email": "barath0000@gmail.com",
+      "password": "$2b$10$n3DcDGrPqfMdf.hbriwzgeUcThYE7VD4mv1uAgU3HvA3ra4eLlbGO"
+    },
+    {
+      "name": "Gokul",
+      "email": "Gokul000@gmail.com",
+      "password": "$2b$10$ppFHfSBIv0qOyYXfoPRVd.ZqOy1Ss1HeqSxPX/NeifJL8jS0JizZG"
     }
   ]
 }
