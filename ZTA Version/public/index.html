@@ -153,6 +153,17 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
             </div>
         </div>
 
+        
+
+        <script>
+            document.getElementById("logoutBtn")?.addEventListener("click", () => {
+            localStorage.removeItem("jwtToken"); // clear token from local storage
+            window.location.href = "login.html"; // redirect to login page
+            });
+        </script>
+
+
+
         <!--Service-->
 
         <div class="service">
