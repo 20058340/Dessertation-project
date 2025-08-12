@@ -1,34 +1,10 @@
 {
   "users": [
     {
-      "name": "barath",
-      "email": "barathm0114@gmail.com",
-      "password": "$2b$10$kjd1512BTRPaxTZqepNNuefYr.mtjDBnV7e8.vJ4FsMlDjVFUysS6"
-    },
-    {
-      "name": "BARATH ",
-      "email": "barathm0023@gmail.com",
-      "password": "$2b$10$uH7lrC/ww7zsnNLeCoFeBuHRZ7QKA3YEM.qpMLVYC6h/NoSFVzGjK"
-    },
-    {
       "name": "Barath",
-      "email": "barathm0000@gmail.com",
-      "password": "$2b$10$gbLSrcqfLk4SjYfJme2Jf.mFSIy8meGCtnjyZguqD9wiuqBJvkaAy"
-    },
-    {
-      "name": "Gokul",
-      "email": "gokuk000@gmail.com",
-      "password": "$2b$10$VtNDU7H0LD656xYt9C.UiuK00BaT8HvavvkHd2nG53JU6vZNLzm/G"
-    },
-    {
-      "name": "Barath Mani",
-      "email": "barath0000@gmail.com",
-      "password": "$2b$10$n3DcDGrPqfMdf.hbriwzgeUcThYE7VD4mv1uAgU3HvA3ra4eLlbGO"
-    },
-    {
-      "name": "Gokul",
-      "email": "Gokul000@gmail.com",
-      "password": "$2b$10$ppFHfSBIv0qOyYXfoPRVd.ZqOy1Ss1HeqSxPX/NeifJL8jS0JizZG"
+      "email": "barathm0114@gmail.com",
+      "password": "$2b$10$5XxKNuG2w9YkPbQDzwy4zeTrmB1aqUsik93tfzwk3Th1UhV3OYrr.",
+      "role": "user"
     }
   ]
 }
