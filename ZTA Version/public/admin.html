@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="user-info-bar">
+    <div class="user-greeting">
+      <i class="fa-solid fa-user-circle user-avatar"></i>
+      <span id="adminUserInfo">Welcome, Admin!</span>
+    </div>
+    <button id="logoutBtn" class="logout-btn" title="Logout">
+      <i class="fa-solid fa-right-from-bracket"></i>
+    </button>
+  </div>
+
+  <h1>Admin Dashboard</h1>
+  <p>This page is only accessible to users with the <b>admin</b> role.</p>
+
+  <div id="adminData"></div>
+
+  <script>
+    const token = localStorage.getItem("jwtToken");
+    const role = localStorage.getItem("userRole");
+
+    // If not logged in or not admin → redirect
+    if (!token || role !== "admin") {
+      alert("Access denied: Admins only");
+      window.location.href = "login.html";
+    }
+
+    // Fetch admin-only data
+    fetch("http://localhost:3000/api/admin-data", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    })
+    .then(res => {
+      if (!res.ok) throw new Error("Unauthorized");
+      return res.json();
+    })
+    .then(data => {
+      document.getElementById("adminUserInfo").innerText = "Hello, Admin!";
+      document.getElementById("adminData").innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+    })
+    .catch(err => {
+      console.error(err);
+      alert("You do not have permission to view this page.");
+      window.location.href = "login.html";
+    });
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("jwtToken");
+      localStorage.removeItem("userRole");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
