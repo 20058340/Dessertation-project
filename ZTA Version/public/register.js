@@ -1,10 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("registerForm");
+  const roleSelect = document.getElementById("role");
+  const adminSecretInput = document.getElementById("adminSecret");
 
-  if (!form) {
-    console.error("Form with id 'registerForm' not found.");
-    return;
-  }
+  const ADMIN_SECRET_CODE = "MySecret123"; // Change this to your real secret
+
+  // Show/Hide secret input based on role selection
+  roleSelect.addEventListener("change", () => {
+    if (roleSelect.value === "admin") {
+      adminSecretInput.style.display = "block";
+    } else {
+      adminSecretInput.style.display = "none";
+      adminSecretInput.value = "";
+    }
+  });
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -12,7 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const role = document.getElementById("role").value; // Get selected role
+    const role = roleSelect.value;
+    const adminSecret = adminSecretInput.value;
+
+    // Check admin secret if registering as admin
+    if (role === "admin" && adminSecret !== ADMIN_SECRET_CODE) {
+      alert("Invalid Admin Secret Code!");
+      return;
+    }
 
     try {
       const response = await fetch("http://localhost:3000/register", {
