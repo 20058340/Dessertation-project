@@ -12,22 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const role = document.getElementById("role").value; // Get selected role
 
     try {
       const response = await fetch("http://localhost:3000/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          role: "user" // Change to 'admin' manually for testing
-        })
+        body: JSON.stringify({ name, email, password, role })
       });
 
       const data = await response.json();
       if (response.ok) {
-        alert("Registration successful. Redirecting to login...");
+        alert(`Registration successful as ${role}. Redirecting to login...`);
         window.location.href = "login.html";
       } else {
         alert("Registration failed: " + (data.message || "Please try again."));
