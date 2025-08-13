@@ -1,16 +1,5 @@
 {
   "users": [
-    {
-      "name": "Barath",
-      "email": "barathm0114@gmail.com",
-      "password": "$2b$10$F7Ks/3ME.4PcJ.ZZFBvWE..1aLyZYZLDudwgTGOARWgkVvYLj8xQK",
-      "role": "user"
-    },
-    {
-      "name": "Barath Mani",
-      "email": "barath0000@gmail.com",
-      "password": "$2b$10$IizqOLwB.3F0zJcuMA36vO2tC5ctIzOKJXgDXWgXx85ZGC24uzEVS",
-      "role": "admin"
-    }
+   
   ]
 }
