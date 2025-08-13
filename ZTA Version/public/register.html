@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -13,12 +13,18 @@
       <input type="text" id="name" placeholder="Name" required />
       <input type="email" id="email" placeholder="Email" required />
       <input type="password" id="password" placeholder="Password" required />
+
+      <!-- Role Selection -->
+      <select id="role" required>
+        <option value="user" selected>User</option>
+        <option value="admin">Admin</option>
+      </select>
+
       <button type="submit">Register</button>
     </form>
     <p>Already have an account? <a href="login.html">Login here</a></p>
   </div>
 
-  <!-- Only include register.js -->
   <script src="register.js"></script>
 </body>
 </html>
