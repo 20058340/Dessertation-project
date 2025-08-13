@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -19,6 +19,14 @@
         <option value="user" selected>User</option>
         <option value="admin">Admin</option>
       </select>
+
+      <!-- Hidden Admin Secret Input -->
+      <input 
+        type="password" 
+        id="adminSecret" 
+        placeholder="Enter Admin Secret" 
+        style="display: none; margin-top: 10px;"
+      />
 
       <button type="submit">Register</button>
     </form>
