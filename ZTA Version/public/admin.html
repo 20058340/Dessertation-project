@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Panel</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
 </head>
 <body>
+  <!-- Top bar -->
   <div class="user-info-bar">
     <div class="user-greeting">
       <i class="fa-solid fa-user-circle user-avatar"></i>
@@ -17,40 +19,142 @@
     </button>
   </div>
 
-  <h1>Admin Dashboard</h1>
-  <p>This page is only accessible to users with the <b>admin</b> role.</p>
+  <!-- Admin Dashboard -->
+  <div class="admin-container">
+    <h1>Admin Dashboard</h1>
+    <p>Manage all registered users and their roles.</p>
 
-  <div id="adminData"></div>
+    <!-- Search & Filter -->
+    <div class="admin-controls">
+      <input type="text" id="searchInput" placeholder="Search by name or email..." />
+    </div>
+
+    <!-- Table -->
+    <table id="usersTable" class="admin-table">
+      <thead>
+        <tr>
+          <th>Name</th><th>Email</th><th>Role</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div id="pagination" class="pagination"></div>
+  </div>
 
   <script>
     const token = localStorage.getItem("jwtToken");
     const role = localStorage.getItem("userRole");
 
-    // If not logged in or not admin → redirect
     if (!token || role !== "admin") {
       alert("Access denied: Admins only");
       window.location.href = "login.html";
     }
 
-    // Fetch admin-only data
-    fetch("http://localhost:3000/api/admin-data", {
+    // Display admin's name
+    fetch("http://localhost:3000/api/profile", {
       method: "GET",
-      headers: {
-        Authorization: "Bearer " + token
-      }
+      headers: { Authorization: "Bearer " + token }
     })
-    .then(res => {
-      if (!res.ok) throw new Error("Unauthorized");
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
-      document.getElementById("adminUserInfo").innerText = "Hello, Admin!";
-      document.getElementById("adminData").innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
-    })
-    .catch(err => {
-      console.error(err);
-      alert("You do not have permission to view this page.");
-      window.location.href = "login.html";
+      document.getElementById("adminUserInfo").innerText = `Hello, ${data.user.name} (Admin)`;
+    });
+
+    // Pagination variables
+    let usersData = [];
+    let currentPage = 1;
+    const rowsPerPage = 5;
+
+    const usersTableBody = document.querySelector("#usersTable tbody");
+    const paginationDiv = document.getElementById("pagination");
+
+    function displayUsers(users, page) {
+      usersTableBody.innerHTML = "";
+      page--;
+
+      const start = page * rowsPerPage;
+      const end = start + rowsPerPage;
+      const paginatedUsers = users.slice(start, end);
+
+      paginatedUsers.forEach(user => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${user.name}</td>
+          <td>${user.email}</td>
+          <td>
+            <select onchange="changeRole('${user.email}', this.value)">
+              <option value="user" ${user.role === "user" ? "selected" : ""}>User</option>
+              <option value="admin" ${user.role === "admin" ? "selected" : ""}>Admin</option>
+            </select>
+          </td>
+          <td>
+            <button onclick="deleteUser('${user.email}')">Delete</button>
+          </td>
+        `;
+        usersTableBody.appendChild(row);
+      });
+
+      setupPagination(users);
+    }
+
+    function setupPagination(users) {
+      paginationDiv.innerHTML = "";
+      const pageCount = Math.ceil(users.length / rowsPerPage);
+
+      for (let i = 1; i <= pageCount; i++) {
+        const btn = document.createElement("button");
+        btn.innerText = i;
+        btn.classList.add(i === currentPage ? "active" : "");
+        btn.addEventListener("click", function () {
+          currentPage = i;
+          displayUsers(users, currentPage);
+        });
+        paginationDiv.appendChild(btn);
+      }
+    }
+
+    function loadUsers() {
+      fetch("http://localhost:3000/api/users", {
+        headers: { Authorization: "Bearer " + token }
+      })
+      .then(res => res.json())
+      .then(users => {
+        usersData = users;
+        displayUsers(usersData, currentPage);
+      });
+    }
+
+    function deleteUser(email) {
+      if (!confirm(`Delete user ${email}?`)) return;
+      fetch(`http://localhost:3000/api/users/${email}`, {
+        method: "DELETE",
+        headers: { Authorization: "Bearer " + token }
+      })
+      .then(() => loadUsers());
+    }
+
+    function changeRole(email, newRole) {
+      fetch(`http://localhost:3000/api/users/${email}`, {
+        method: "PUT",
+        headers: { 
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token
+        },
+        body: JSON.stringify({ role: newRole })
+      })
+      .then(() => loadUsers());
+    }
+
+    // Search filter
+    document.getElementById("searchInput").addEventListener("input", function() {
+      const searchText = this.value.toLowerCase();
+      const filtered = usersData.filter(user =>
+        user.name.toLowerCase().includes(searchText) ||
+        user.email.toLowerCase().includes(searchText)
+      );
+      displayUsers(filtered, 1);
     });
 
     // Logout
@@ -59,6 +163,9 @@
       localStorage.removeItem("userRole");
       window.location.href = "login.html";
     });
+
+    // Load data
+    loadUsers();
   </script>
 </body>
 </html>
