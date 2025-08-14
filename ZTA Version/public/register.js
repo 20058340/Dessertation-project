@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const roleSelect = document.getElementById("role");
   const adminSecretInput = document.getElementById("adminSecret");
 
-  const ADMIN_SECRET_CODE = "MySecret123"; // Change this to your real secret
+  const ADMIN_SECRET_CODE = "barath123"; 
 
   // Show/Hide secret input based on role selection
   roleSelect.addEventListener("change", () => {

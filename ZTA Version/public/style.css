@@ -551,6 +551,126 @@ footer small a:hover {
     flex-basis: 20%;
 }*/
 
+/*Admin page styles*/
+
+/* ===== Admin Dashboard Styles ===== */
+
+.admin-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.admin-container h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.admin-container p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+/* Table styling */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-table th, .admin-table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+}
+
+.admin-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.admin-table tr:hover {
+  background-color: #e9f3ff;
+  transition: background-color 0.3s ease;
+}
+
+/* Buttons */
+.admin-table button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.admin-table button:hover {
+  background-color: #c82333;
+}
+
+/* Role select */
+.admin-table select {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-size: 0.9rem;
+}
+/* Search & Controls */
+.admin-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.admin-controls input {
+  padding: 8px 12px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.pagination button {
+  padding: 6px 10px;
+  margin: 0 3px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #0056b3;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
 
 
 .product-search {
@@ -626,4 +746,10 @@ footer small a:hover {
     .service-container-2{
         flex-direction: column;
     }
+    .admin-table {
+        font-size: 0.85rem;
+    }
+    .admin-table th, .admin-table td {
+        padding: 8px;
+  }
 }

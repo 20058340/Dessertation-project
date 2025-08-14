@@ -120,6 +120,40 @@ app.get("/api/profile", verifyToken, (req, res) => {
   });
 });
 
+// admin js
+
+//  Get all users (admin only)
+app.get("/api/users", verifyToken, authorizeRoles("admin"), (req, res) => {
+  const users = db.get("users").map(u => ({
+    name: u.name,
+    email: u.email,
+    role: u.role
+  })).value();
+  res.json(users);
+});
+
+// Delete a user by email (admin only)
+app.delete("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) => {
+  const { email } = req.params;
+  db.get("users").remove({ email }).write();
+  res.json({ message: `User ${email} deleted successfully` });
+});
+
+// Change a user's role (admin only)
+app.put("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) => {
+  const { email } = req.params;
+  const { role } = req.body;
+  const user = db.get("users").find({ email }).value();
+  
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  db.get("users").find({ email }).assign({ role }).write();
+  res.json({ message: `User ${email} role updated to ${role}` });
+});
+
+
 // ADMIN ONLY
 app.get("/api/admin-data", verifyToken, authorizeRoles("admin"), (req, res) => {
   res.json({ message: "Welcome Admin 🚀 Here is your secret data" });
