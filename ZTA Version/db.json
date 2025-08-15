@@ -18,5 +18,17 @@
       "password": "$2b$10$JqNyF58QEeJpwBPZLR4Hae1sraqm1amMAERabwTeNt0/4OcgDGbFO",
       "role": "user"
     }
+  ],
+  "otps": [
+    {
+      "email": "barath0000@gmail.com",
+      "otp": "627517",
+      "expiry": 1755291465534
+    },
+    {
+      "email": "barathm0114@gmail.com",
+      "otp": "961630",
+      "expiry": 1755291492786
+    }
   ]
 }
