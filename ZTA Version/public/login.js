@@ -1,69 +1,45 @@
-console.log("login.js loaded");
+console.log(" login.js loaded");
 
 document.addEventListener("DOMContentLoaded", function () {
-  const loginForm = document.getElementById("loginForm");
-  const otpForm = document.getElementById("otpForm");
+  const form = document.getElementById('loginForm');
 
-  let currentEmail = ""; // store email temporarily for OTP verification
+  if (!form) {
+    console.error("Login form not found");
+    return;
+  }
 
-  // Step 1: Email + Password
-  loginForm.addEventListener("submit", async function (e) {
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
     try {
-      const response = await fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
       });
 
       const data = await response.json();
 
-      if (response.ok && data.otpSent) {
-        alert("OTP sent to your email. Please enter it below.");
-        currentEmail = email;
-
-        loginForm.style.display = "none"; // hide login form
-        otpForm.style.display = "block";  // show OTP form
-      } else {
-        alert("Login failed: " + data.message);
-      }
-    } catch (error) {
-      alert("Unable to connect to server.");
-      console.error("Error:", error);
-    }
-  });
-
-  // Step 2: OTP Verification
-  otpForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const otp = document.getElementById("otp").value;
-
-    try {
-      const response = await fetch("http://localhost:3000/verify-otp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: currentEmail, otp })
-      });
-
-      const data = await response.json();
-
       if (response.ok && data.success) {
-        localStorage.setItem("jwtToken", data.token);
-        localStorage.setItem("userRole", data.role);
+        console.log("Token received:", data.token);
 
-        alert("Login successful! Redirecting...");
-        window.location.href = "index.html";
+        // Store the JWT token in localStorage
+        localStorage.setItem("jwtToken", data.token);
+
+        alert('Login successful! Redirecting...');
+        window.location.href = 'index.html'; 
+      } else if (data.message === 'User not found') {
+        alert('User not found. Redirecting to registration...');
+        window.location.href = 'register.html';
       } else {
-        alert("OTP verification failed: " + data.message);
+        alert('Login failed: ' + data.message);
       }
     } catch (error) {
-      alert("Unable to connect to server.");
-      console.error("Error:", error);
+      alert('Unable to connect to server.');
+      console.error(" Error:", error);
     }
   });
 });
