@@ -5,7 +5,6 @@ const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");  // ✅ Added for OTP email
 
 const app = express();
 const PORT = 3000;
@@ -16,18 +15,6 @@ const JWT_SECRET = "your_super_secret_key";
 const adapter = new FileSync(path.join(__dirname, "db.json"));
 const db = low(adapter);
 db.defaults({ users: [] }).write();
-
-// ✅ Temporary in-memory OTP store
-let otpStore = {};
-
-// Nodemailer setup
-const transporter = nodemailer.createTransport({
-  service: "gmail", // use Gmail (or SMTP)
-  auth: {
-    user: "barathm0114@gmail.com",   // 🔑 replace with your email
-    pass: "12345"       // 🔑 use App Password (not normal pwd)
-  }
-});
 
 // Middleware: verify token
 function verifyToken(req, res, next) {
@@ -76,7 +63,7 @@ app.post("/register", async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role: role || "user"
+      role: role || "user" // default
     };
     db.get("users").push(newUser).write();
 
@@ -87,7 +74,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// LOGIN (Step 1: Verify password & send OTP)
+// LOGIN
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const user = db.get("users").find({ email }).value();
@@ -100,63 +87,22 @@ app.post("/login", async (req, res) => {
       return res.status(401).json({ success: false, message: "Incorrect password" });
     }
 
-    // ✅ Generate OTP (6 digits)
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    otpStore[email] = { otp, expires: Date.now() + 5 * 60 * 1000 }; // valid 5 mins
-
-    // ✅ Send OTP via email
-    await transporter.sendMail({
-      from: '"Nostra Security" <your_email@gmail.com>',
-      to: email,
-      subject: "Your OTP Code",
-      text: `Your OTP code is ${otp}. It will expire in 5 minutes.`,
-    });
+    const token = jwt.sign(
+      { email: user.email, role: user.role },
+      JWT_SECRET,
+      { expiresIn: "1h" }
+    );
 
     res.status(200).json({
       success: true,
-      message: "OTP sent to your email. Please verify to continue.",
-      step: "otp_required"
+      message: "Login successful",
+      token,
+      role: user.role
     });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: "Login error" });
   }
-});
-
-// VERIFY OTP (Step 2: Issue JWT)
-app.post("/verify-otp", (req, res) => {
-  const { email, otp } = req.body;
-  const record = otpStore[email];
-
-  if (!record) {
-    return res.status(400).json({ success: false, message: "No OTP request found." });
-  }
-
-  if (Date.now() > record.expires) {
-    delete otpStore[email];
-    return res.status(400).json({ success: false, message: "OTP expired." });
-  }
-
-  if (record.otp !== otp) {
-    return res.status(401).json({ success: false, message: "Invalid OTP." });
-  }
-
-  // OTP valid → issue JWT
-  const user = db.get("users").find({ email }).value();
-  const token = jwt.sign(
-    { email: user.email, role: user.role },
-    JWT_SECRET,
-    { expiresIn: "1h" }
-  );
-
-  delete otpStore[email]; // clear used OTP
-
-  res.status(200).json({
-    success: true,
-    message: "OTP verified successfully ✅",
-    token,
-    role: user.role
-  });
 });
 
 // PROFILE
@@ -174,7 +120,9 @@ app.get("/api/profile", verifyToken, (req, res) => {
   });
 });
 
-// ADMIN APIs
+// admin js
+
+//  Get all users (admin only)
 app.get("/api/users", verifyToken, authorizeRoles("admin"), (req, res) => {
   const users = db.get("users").map(u => ({
     name: u.name,
@@ -184,12 +132,14 @@ app.get("/api/users", verifyToken, authorizeRoles("admin"), (req, res) => {
   res.json(users);
 });
 
+// Delete a user by email (admin only)
 app.delete("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) => {
   const { email } = req.params;
   db.get("users").remove({ email }).write();
   res.json({ message: `User ${email} deleted successfully` });
 });
 
+// Change a user's role (admin only)
 app.put("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) => {
   const { email } = req.params;
   const { role } = req.body;
@@ -203,6 +153,7 @@ app.put("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) =>
   res.json({ message: `User ${email} role updated to ${role}` });
 });
 
+// ADMIN ONLY
 app.get("/api/admin-data", verifyToken, authorizeRoles("admin"), (req, res) => {
   res.json({ message: "Welcome Admin 🚀 Here is your secret data" });
 });
@@ -210,3 +161,4 @@ app.get("/api/admin-data", verifyToken, authorizeRoles("admin"), (req, res) => {
 app.listen(PORT, () => {
   console.log(` Server running at http://localhost:${PORT}`);
 });
+
