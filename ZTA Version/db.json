@@ -5,25 +5,8 @@
       "email": "barath0000@gmail.com",
       "password": "$2b$10$gtVyrTQMnDdA636PrVJYq.h7MaFoqaghKYfYoEXgJeMpwt/nKixpe",
       "role": "admin"
-    },
-    {
-      "name": "Barath",
-      "email": "barathm0114@gmail.com",
-      "password": "$2b$10$9FnBu2BVXVjNMbjvXmT57ezlFiPO7VMBHJ3PkQyWMjDA3DEco3wEm",
-      "role": "user"
-    },
-    {
-      "name": "Mani",
-      "email": "Mani000@gmail.com",
-      "password": "$2b$10$JqNyF58QEeJpwBPZLR4Hae1sraqm1amMAERabwTeNt0/4OcgDGbFO",
-      "role": "user"
-    },
-    {
-      "name": "Barath Mani",
-      "email": "barathm0000@gmail.com",
-      "password": "$2b$10$p.auyjJQm9pzMlMSriStFOaknv83TA4pP4cCHOdR5mcy7rrr37.ja",
-      "role": "user"
     }
+    
   ],
   "otps": []
 }
