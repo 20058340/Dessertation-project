@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const data = await response.json();
 
-      if (response.ok && data.otp_required) {
-        alert("OTP sent! (Check console for demo)");
+      if (response.ok && data.mfa_required) {
+        alert("Please open your Authenticator app and enter the 6-digit code.");
         loginForm.style.display = "none";
         otpForm.style.display = "block";
       } else {
@@ -36,17 +36,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Step 2: Verify OTP
+  // Step 2: Verify Authenticator code
   otpForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const otp = document.getElementById("otp").value;
 
     try {
-      const response = await fetch("http://localhost:3000/verify-otp", {
+      const response = await fetch("http://localhost:3000/verify-mfa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: currentEmail, otp })
+        body: JSON.stringify({ email: currentEmail, token: otp })
       });
 
       const data = await response.json();
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Login successful! Redirecting...");
         window.location.href = "index.html";
       } else {
-        alert("OTP failed: " + data.message);
+        alert("Code verification failed: " + data.message);
       }
     } catch (error) {
       alert("Unable to connect to server.");
