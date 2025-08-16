@@ -5,6 +5,8 @@ const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const speakeasy = require("speakeasy");
+const qrcode = require("qrcode");
 
 const app = express();
 const PORT = 3000;
@@ -14,7 +16,7 @@ const JWT_SECRET = "your_super_secret_key";
 // Setup lowdb
 const adapter = new FileSync(path.join(__dirname, "db.json"));
 const db = low(adapter);
-db.defaults({ users: [], otps: [] }).write(); // also store OTPs
+db.defaults({ users: [] }).write(); // store users only
 
 // Middleware: verify token
 function verifyToken(req, res, next) {
@@ -58,9 +60,28 @@ app.post("/register", async (req, res) => {
 
   try {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const newUser = { name, email, password: hashedPassword, role: role || "user" };
+
+    // Generate MFA secret for Google Authenticator
+    const secret = speakeasy.generateSecret({ name: `NostraApp (${email})` });
+
+    const newUser = { 
+      name, 
+      email, 
+      password: hashedPassword, 
+      role: role || "user",
+      mfa: { base32: secret.base32 } // save MFA secret
+    };
     db.get("users").push(newUser).write();
-    res.status(201).json({ success: true, message: "User registered successfully" });
+
+    // Generate QR code for Google Authenticator
+    const qrCodeUrl = await qrcode.toDataURL(secret.otpauth_url);
+
+    res.status(201).json({ 
+      success: true, 
+      message: "User registered successfully", 
+      qrCodeUrl,  // front-end shows this QR code
+      base32: secret.base32
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: "Error registering user" });
@@ -79,17 +100,12 @@ app.post("/login", async (req, res) => {
       return res.status(401).json({ success: false, message: "Incorrect password" });
     }
 
-    // Generate OTP (random 6-digit code)
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    db.get("otps").remove({ email }).write(); // clear old OTP
-    db.get("otps").push({ email, otp, createdAt: Date.now() }).write();
-
-    console.log(`OTP for ${email}: ${otp}`); // In production send via email/SMS
-
+    // Password is correct → ask for MFA code
     res.status(200).json({
       success: true,
-      message: "OTP sent. Please verify.",
-      otp_required: true
+      message: "Password correct. Enter MFA code.",
+      mfa_required: true,
+      email
     });
   } catch (err) {
     console.error(err);
@@ -97,32 +113,32 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// VERIFY OTP (Step 2 - final login)
-app.post("/verify-otp", (req, res) => {
-  const { email, otp } = req.body;
-  const record = db.get("otps").find({ email }).value();
-  if (!record) return res.status(400).json({ success: false, message: "No OTP found" });
-
-  // OTP expires in 5 minutes
-  if (Date.now() - record.createdAt > 5 * 60 * 1000) {
-    return res.status(400).json({ success: false, message: "OTP expired" });
-  }
-
-  if (record.otp !== otp) {
-    return res.status(401).json({ success: false, message: "Invalid OTP" });
-  }
-
-  // Valid OTP → issue JWT
+// VERIFY MFA (Step 2 - final login)
+app.post("/verify-mfa", (req, res) => {
+  const { email, token } = req.body;
   const user = db.get("users").find({ email }).value();
-  const token = jwt.sign({ email: user.email, role: user.role }, JWT_SECRET, { expiresIn: "1h" });
+  if (!user || !user.mfa) {
+    return res.status(400).json({ success: false, message: "MFA not set up" });
+  }
 
-  // cleanup OTP
-  db.get("otps").remove({ email }).write();
+  // Verify the TOTP token
+  const verified = speakeasy.totp.verify({
+    secret: user.mfa.base32,
+    encoding: "base32",
+    token
+  });
+
+  if (!verified) {
+    return res.status(401).json({ success: false, message: "Invalid MFA code" });
+  }
+
+  // Success → issue JWT
+  const jwtToken = jwt.sign({ email: user.email, role: user.role }, JWT_SECRET, { expiresIn: "1h" });
 
   res.status(200).json({
     success: true,
     message: "Login successful",
-    token,
+    token: jwtToken,
     role: user.role
   });
 });
@@ -151,7 +167,6 @@ app.delete("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res)
   res.json({ message: `User ${email} deleted successfully` });
 });
 
-
 // Change a user's role (admin only)
 app.put("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) => {
   const { email } = req.params;
@@ -165,7 +180,6 @@ app.put("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) =>
   db.get("users").find({ email }).assign({ role }).write();
   res.json({ message: `User ${email} role updated to ${role}` });
 });
-
 
 // ADMIN ONLY
 app.get("/api/admin-data", verifyToken, authorizeRoles("admin"), (req, res) => {
