@@ -668,6 +668,127 @@ footer small a:hover {
   background-color: #0056b3;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  margin: 0;
+  padding: 0;
+}
+
+.user-info-bar {
+  background: #007bff;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-avatar { font-size: 1.5rem; margin-right: 8px; }
+.logout-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.logout-btn:hover { color: #ffc107; }
+
+.admin-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 { margin-top: 0; color: #333; }
+
+/* Tabs */
+.tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+.tab-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #e9ecef;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.tab-btn.active { background: #007bff; color: white; }
+.tab-btn:hover { background: #0056b3; color: white; }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Controls */
+.admin-controls { margin-bottom: 15px; }
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+th {
+  background: #007bff;
+  color: white;
+}
+tr:nth-child(even) { background: #f9f9f9; }
+tr:hover { background: #f1f1f1; }
+
+/* Action buttons */
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+button:hover { opacity: 0.9; }
+.delete-btn { background: #dc3545; color: white; }
+.delete-btn:hover { background: #b02a37; }
+select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 15px;
+  text-align: center;
+}
+.pagination button {
+  margin: 2px;
+  padding: 6px 10px;
+  border: 1px solid #007bff;
+  background: white;
+  color: #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pagination button.active {
+  background: #007bff;
+  color: white;
+}
+.pagination button:hover {
+  background: #0056b3;
+  color: white;
+}
 
 
 
