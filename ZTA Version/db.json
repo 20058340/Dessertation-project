@@ -245,6 +245,60 @@
       "user": "barathm0114@gmail.com",
       "action": "ADMIN_VIEW_LOGS",
       "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T18:08:40.687Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T18:08:42.058Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T18:08:43.839Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T18:08:45.082Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T18:08:47.635Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T18:08:48.757Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T18:08:50.062Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T18:08:57.390Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T18:08:57.394Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
     }
   ]
 }
