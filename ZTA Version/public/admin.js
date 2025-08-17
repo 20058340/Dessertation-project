@@ -98,6 +98,11 @@ document.getElementById("searchInput").addEventListener("input", function() {
   displayUsers(filtered, 1);
 });
 
+// CSV Export for Users
+document.getElementById("exportUsersBtn").addEventListener("click", () => {
+  exportCSV(usersData, ["Name", "Email", "Role"]);
+});
+
 // ========== LOGS ==========
 let logsData = [];
 const logsTableBody = document.querySelector("#logsTable tbody");
@@ -136,6 +141,35 @@ document.getElementById("logSearchInput").addEventListener("input", function() {
   );
   displayLogs(filtered);
 });
+
+// CSV Export for Logs
+document.getElementById("exportLogsBtn").addEventListener("click", () => {
+  exportCSV(logsData, ["Timestamp", "User", "Action", "Details"]);
+});
+
+// CSV Helper
+function exportCSV(data, headers) {
+  if (!data.length) return alert("No data to export");
+  const csvRows = [];
+  csvRows.push(headers.join(","));
+  data.forEach(item => {
+    const values = headers.map(h => {
+      const key = h.toLowerCase();
+      return `"${item[key] || ""}"`;
+    });
+    csvRows.push(values.join(","));
+  });
+  const csvData = csvRows.join("\n");
+  const blob = new Blob([csvData], { type: "text/csv" });
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.setAttribute("hidden", "");
+  a.href = url;
+  a.download = "export.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
 
 // ========== Tabs ==========
 document.querySelectorAll(".tab-btn").forEach(btn => {
