@@ -35,8 +35,9 @@
     <div id="usersTab" class="tab-content active">
       <div class="admin-controls">
         <input type="text" id="searchInput" placeholder="Search by name or email..." />
+        <button id="exportUsersBtn" class="export-btn"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
       </div>
-      <table id="usersTable">
+      <table id="usersTable" class="admin-table">
         <thead>
           <tr>
             <th>Name</th><th>Email</th><th>Role</th><th>Actions</th>
@@ -51,8 +52,9 @@
     <div id="logsTab" class="tab-content">
       <div class="admin-controls">
         <input type="text" id="logSearchInput" placeholder="Search logs..." />
+        <button id="exportLogsBtn" class="export-btn"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
       </div>
-      <table id="logsTable">
+      <table id="logsTable" class="admin-table">
         <thead>
           <tr>
             <th>Timestamp</th><th>User</th><th>Action</th><th>Details</th>
