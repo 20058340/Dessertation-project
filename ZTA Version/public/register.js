@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const roleSelect = document.getElementById("role");
   const adminSecretInput = document.getElementById("adminSecret");
 
+  const mfaSetupDiv = document.getElementById("mfaSetup");
+  const qrCodeImg = document.getElementById("qrCodeImg");
+  const manualKey = document.getElementById("manualKey");
+  const goToLoginBtn = document.getElementById("goToLogin");
+
   const ADMIN_SECRET_CODE = "barath123"; 
 
   // Show/Hide secret input based on role selection
@@ -38,9 +43,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const data = await response.json();
-      if (response.ok) {
-        alert(`Registration successful as ${role}. Redirecting to login...`);
-        window.location.href = "login.html";
+      if (response.ok && data.success) {
+        // Hide form, show MFA setup
+        form.style.display = "none";
+        mfaSetupDiv.style.display = "block";
+
+        // Show QR code and manual key
+        qrCodeImg.src = data.qrCodeUrl;
+        manualKey.textContent = data.base32;
+
+        // Button to login page
+        goToLoginBtn.addEventListener("click", () => {
+          window.location.href = "login.html";
+        });
       } else {
         alert("Registration failed: " + (data.message || "Please try again."));
       }
