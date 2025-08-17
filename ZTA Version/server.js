@@ -16,7 +16,19 @@ const JWT_SECRET = "your_super_secret_key";
 // Setup lowdb
 const adapter = new FileSync(path.join(__dirname, "db.json"));
 const db = low(adapter);
-db.defaults({ users: [] }).write(); // store users only
+db.defaults({ users: [], logs: [] }).write(); // ✅ added logs
+
+// ===== Helper: Log Event =====
+function logEvent(userEmail, action, details = "") {
+  const log = {
+    timestamp: new Date().toISOString(),
+    user: userEmail || "SYSTEM",
+    action,
+    details
+  };
+  db.get("logs").push(log).write();
+  console.log("📜 LOG:", log);
+}
 
 // Middleware: verify token
 function verifyToken(req, res, next) {
@@ -55,13 +67,13 @@ app.post("/register", async (req, res) => {
   const { name, email, password, role } = req.body;
   const existingUser = db.get("users").find({ email }).value();
   if (existingUser) {
+    logEvent(email, "REGISTER_FAILED", "User already exists");
     return res.status(400).json({ success: false, message: "User already exists" });
   }
 
   try {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    // Generate MFA secret for Google Authenticator
     const secret = speakeasy.generateSecret({ name: `NostraApp (${email})` });
 
     const newUser = { 
@@ -69,21 +81,23 @@ app.post("/register", async (req, res) => {
       email, 
       password: hashedPassword, 
       role: role || "user",
-      mfa: { base32: secret.base32 } // save MFA secret
+      mfa: { base32: secret.base32 }
     };
     db.get("users").push(newUser).write();
 
-    // Generate QR code for Google Authenticator
     const qrCodeUrl = await qrcode.toDataURL(secret.otpauth_url);
+
+    logEvent(email, "REGISTER_SUCCESS", `Role: ${role || "user"}`);
 
     res.status(201).json({ 
       success: true, 
       message: "User registered successfully", 
-      qrCodeUrl,  // front-end shows this QR code
+      qrCodeUrl,
       base32: secret.base32
     });
   } catch (err) {
     console.error(err);
+    logEvent(email, "REGISTER_ERROR", err.message);
     res.status(500).json({ success: false, message: "Error registering user" });
   }
 });
@@ -92,15 +106,20 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const user = db.get("users").find({ email }).value();
-  if (!user) return res.status(404).json({ success: false, message: "User not found" });
+  if (!user) {
+    logEvent(email, "LOGIN_FAILED", "User not found");
+    return res.status(404).json({ success: false, message: "User not found" });
+  }
 
   try {
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
+      logEvent(email, "LOGIN_FAILED", "Incorrect password");
       return res.status(401).json({ success: false, message: "Incorrect password" });
     }
 
-    // Password is correct → ask for MFA code
+    logEvent(email, "LOGIN_STEP1_SUCCESS", "Password correct, MFA required");
+
     res.status(200).json({
       success: true,
       message: "Password correct. Enter MFA code.",
@@ -109,6 +128,7 @@ app.post("/login", async (req, res) => {
     });
   } catch (err) {
     console.error(err);
+    logEvent(email, "LOGIN_ERROR", err.message);
     res.status(500).json({ success: false, message: "Login error" });
   }
 });
@@ -116,24 +136,37 @@ app.post("/login", async (req, res) => {
 // VERIFY MFA (Step 2 - final login)
 app.post("/verify-mfa", (req, res) => {
   const { email, token } = req.body;
+
+  if (!/^\d{6}$/.test(String(token || ""))) {
+    logEvent(email, "MFA_FAILED", "Invalid format");
+    return res.status(400).json({ success: false, message: "Invalid code format" });
+  }
+
   const user = db.get("users").find({ email }).value();
-  if (!user || !user.mfa) {
+  if (!user || !user.mfa?.base32) {
+    logEvent(email, "MFA_FAILED", "MFA not set up");
     return res.status(400).json({ success: false, message: "MFA not set up" });
   }
 
-  // Verify the TOTP token
   const verified = speakeasy.totp.verify({
     secret: user.mfa.base32,
     encoding: "base32",
-    token
+    token,
+    window: 1
   });
 
   if (!verified) {
-    return res.status(401).json({ success: false, message: "Invalid MFA code" });
+    logEvent(email, "MFA_FAILED", "Invalid/expired code");
+    return res.status(401).json({ success: false, message: "Invalid or expired MFA code" });
   }
 
-  // Success → issue JWT
-  const jwtToken = jwt.sign({ email: user.email, role: user.role }, JWT_SECRET, { expiresIn: "1h" });
+  const jwtToken = jwt.sign(
+    { email: user.email, role: user.role },
+    JWT_SECRET,
+    { expiresIn: "1h" }
+  );
+
+  logEvent(email, "LOGIN_SUCCESS", "MFA passed, token issued");
 
   res.status(200).json({
     success: true,
@@ -146,12 +179,17 @@ app.post("/verify-mfa", (req, res) => {
 // PROFILE
 app.get("/api/profile", verifyToken, (req, res) => {
   const user = db.get("users").find({ email: req.user.email }).value();
-  if (!user) return res.status(404).json({ message: "User not found" });
+  if (!user) {
+    logEvent(req.user.email, "PROFILE_FAILED", "User not found");
+    return res.status(404).json({ message: "User not found" });
+  }
+  logEvent(req.user.email, "PROFILE_VIEW", "User accessed profile");
   res.json({ message: "Access granted ✅", user: { name: user.name, email: user.email, role: user.role } });
 });
 
 //  Get all users (admin only)
 app.get("/api/users", verifyToken, authorizeRoles("admin"), (req, res) => {
+  logEvent(req.user.email, "ADMIN_VIEW_USERS");
   const users = db.get("users").map(u => ({
     name: u.name,
     email: u.email,
@@ -164,6 +202,7 @@ app.get("/api/users", verifyToken, authorizeRoles("admin"), (req, res) => {
 app.delete("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) => {
   const { email } = req.params;
   db.get("users").remove({ email }).write();
+  logEvent(req.user.email, "ADMIN_DELETE_USER", `Deleted: ${email}`);
   res.json({ message: `User ${email} deleted successfully` });
 });
 
@@ -174,16 +213,20 @@ app.put("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) =>
   const user = db.get("users").find({ email }).value();
   
   if (!user) {
+    logEvent(req.user.email, "ADMIN_UPDATE_ROLE_FAILED", `User not found: ${email}`);
     return res.status(404).json({ message: "User not found" });
   }
 
   db.get("users").find({ email }).assign({ role }).write();
+  logEvent(req.user.email, "ADMIN_UPDATE_ROLE", `Changed ${email} to ${role}`);
   res.json({ message: `User ${email} role updated to ${role}` });
 });
 
-// ADMIN ONLY
-app.get("/api/admin-data", verifyToken, authorizeRoles("admin"), (req, res) => {
-  res.json({ message: "Welcome Admin 🚀 Here is your secret data" });
+// ADMIN ONLY - Logs
+app.get("/api/logs", verifyToken, authorizeRoles("admin"), (req, res) => {
+  logEvent(req.user.email, "ADMIN_VIEW_LOGS");
+  const logs = db.get("logs").value();
+  res.json(logs);
 });
 
 app.listen(PORT, () => console.log(` Server running at http://localhost:${PORT}`));
