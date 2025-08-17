@@ -6,6 +6,26 @@
   <title>Admin Panel</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <style>
+    .tabs { display: flex; gap: 15px; margin: 20px 0; }
+    .tab-btn {
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+      background: #f1f1f1;
+      border-radius: 5px;
+    }
+    .tab-btn.active { background: #007bff; color: white; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .log-table th, .log-table td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    .log-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+  </style>
 </head>
 <body>
   <!-- Top bar -->
@@ -22,25 +42,44 @@
   <!-- Admin Dashboard -->
   <div class="admin-container">
     <h1>Admin Dashboard</h1>
-    <p>Manage all registered users and their roles.</p>
+    <p>Manage users and view system logs.</p>
 
-    <!-- Search & Filter -->
-    <div class="admin-controls">
-      <input type="text" id="searchInput" placeholder="Search by name or email..." />
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="usersTab">👥 Users</button>
+      <button class="tab-btn" data-tab="logsTab">📜 Logs</button>
     </div>
 
-    <!-- Table -->
-    <table id="usersTable" class="admin-table">
-      <thead>
-        <tr>
-          <th>Name</th><th>Email</th><th>Role</th><th>Actions</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <!-- Users Tab -->
+    <div id="usersTab" class="tab-content active">
+      <div class="admin-controls">
+        <input type="text" id="searchInput" placeholder="Search by name or email..." />
+      </div>
+      <table id="usersTable" class="admin-table">
+        <thead>
+          <tr>
+            <th>Name</th><th>Email</th><th>Role</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="pagination" class="pagination"></div>
+    </div>
 
-    <!-- Pagination -->
-    <div id="pagination" class="pagination"></div>
+    <!-- Logs Tab -->
+    <div id="logsTab" class="tab-content">
+      <div class="admin-controls">
+        <input type="text" id="logSearchInput" placeholder="Search logs..." />
+      </div>
+      <table id="logsTable" class="log-table">
+        <thead>
+          <tr>
+            <th>Timestamp</th><th>User</th><th>Action</th><th>Details</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
 
   <script>
@@ -54,7 +93,6 @@
 
     // Display admin's name
     fetch("http://localhost:3000/api/profile", {
-      method: "GET",
       headers: { Authorization: "Bearer " + token }
     })
     .then(res => res.json())
@@ -62,18 +100,16 @@
       document.getElementById("adminUserInfo").innerText = `Hello, ${data.user.name} (Admin)`;
     });
 
-    // Pagination variables
+    // ================= USERS =================
     let usersData = [];
     let currentPage = 1;
     const rowsPerPage = 5;
-
     const usersTableBody = document.querySelector("#usersTable tbody");
     const paginationDiv = document.getElementById("pagination");
 
     function displayUsers(users, page) {
       usersTableBody.innerHTML = "";
       page--;
-
       const start = page * rowsPerPage;
       const end = start + rowsPerPage;
       const paginatedUsers = users.slice(start, end);
@@ -89,25 +125,21 @@
               <option value="admin" ${user.role === "admin" ? "selected" : ""}>Admin</option>
             </select>
           </td>
-          <td>
-            <button onclick="deleteUser('${user.email}')">Delete</button>
-          </td>
+          <td><button onclick="deleteUser('${user.email}')">Delete</button></td>
         `;
         usersTableBody.appendChild(row);
       });
-
       setupPagination(users);
     }
 
     function setupPagination(users) {
       paginationDiv.innerHTML = "";
       const pageCount = Math.ceil(users.length / rowsPerPage);
-
       for (let i = 1; i <= pageCount; i++) {
         const btn = document.createElement("button");
         btn.innerText = i;
         btn.classList.add(i === currentPage ? "active" : "");
-        btn.addEventListener("click", function () {
+        btn.addEventListener("click", () => {
           currentPage = i;
           displayUsers(users, currentPage);
         });
@@ -126,28 +158,22 @@
       });
     }
 
-    function deleteUser(email) {
+    window.deleteUser = function(email) {
       if (!confirm(`Delete user ${email}?`)) return;
       fetch(`http://localhost:3000/api/users/${email}`, {
         method: "DELETE",
         headers: { Authorization: "Bearer " + token }
-      })
-      .then(() => loadUsers());
+      }).then(() => loadUsers());
     }
 
-    function changeRole(email, newRole) {
+    window.changeRole = function(email, newRole) {
       fetch(`http://localhost:3000/api/users/${email}`, {
         method: "PUT",
-        headers: { 
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token
-        },
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
         body: JSON.stringify({ role: newRole })
-      })
-      .then(() => loadUsers());
+      }).then(() => loadUsers());
     }
 
-    // Search filter
     document.getElementById("searchInput").addEventListener("input", function() {
       const searchText = this.value.toLowerCase();
       const filtered = usersData.filter(user =>
@@ -157,14 +183,65 @@
       displayUsers(filtered, 1);
     });
 
-    // Logout
+    // ================= LOGS =================
+    let logsData = [];
+    const logsTableBody = document.querySelector("#logsTable tbody");
+
+    function loadLogs() {
+      fetch("http://localhost:3000/api/logs", {
+        headers: { Authorization: "Bearer " + token }
+      })
+      .then(res => res.json())
+      .then(logs => {
+        logsData = logs;
+        displayLogs(logsData);
+      });
+    }
+
+    function displayLogs(logs) {
+      logsTableBody.innerHTML = "";
+      logs.forEach(log => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${new Date(log.timestamp).toLocaleString()}</td>
+          <td>${log.user}</td>
+          <td>${log.action}</td>
+          <td>${log.details || "-"}</td>
+        `;
+        logsTableBody.appendChild(row);
+      });
+    }
+
+    document.getElementById("logSearchInput").addEventListener("input", function() {
+      const searchText = this.value.toLowerCase();
+      const filtered = logsData.filter(log =>
+        log.user.toLowerCase().includes(searchText) ||
+        log.action.toLowerCase().includes(searchText) ||
+        (log.details && log.details.toLowerCase().includes(searchText))
+      );
+      displayLogs(filtered);
+    });
+
+    // ================= Tabs =================
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+        if (btn.dataset.tab === "logsTab") loadLogs();
+        else loadUsers();
+      });
+    });
+
+    // ================= Logout =================
     document.getElementById("logoutBtn").addEventListener("click", () => {
       localStorage.removeItem("jwtToken");
       localStorage.removeItem("userRole");
       window.location.href = "login.html";
     });
 
-    // Load data
+    // Load default tab
     loadUsers();
   </script>
 </body>
