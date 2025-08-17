@@ -2,11 +2,249 @@
   "users": [
     {
       "name": "Barath Mani",
-      "email": "barath0000@gmail.com",
-      "password": "$2b$10$gtVyrTQMnDdA636PrVJYq.h7MaFoqaghKYfYoEXgJeMpwt/nKixpe",
-      "role": "admin"
+      "email": "barathm0114@gmail.com",
+      "password": "$2b$10$cZZdRHfI3BORFmlzDW5le.x8msC.B/dnqZUV/9P7n2FqWAD4C2P1C",
+      "role": "admin",
+      "mfa": {
+        "base32": "FZ5XCRLXJRSX2QLYLNYSU6SSME4GQV2WPV3FQKTLHB2VI3BQM5JA"
+      }
     }
-    
   ],
-  "otps": []
+  "otps": [],
+  "logs": [
+    {
+      "timestamp": "2025-08-17T12:43:04.258Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-17T12:43:22.140Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, token issued"
+    },
+    {
+      "timestamp": "2025-08-17T12:43:22.916Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T12:44:01.911Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-17T12:44:11.265Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-17T12:44:14.899Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-17T12:44:20.608Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-17T13:14:51.244Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-17T13:15:09.249Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-17T13:15:31.465Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, token issued"
+    },
+    {
+      "timestamp": "2025-08-17T13:15:34.095Z",
+      "user": "barath0000@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T13:16:10.524Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-17T13:16:15.869Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-17T13:16:32.960Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, token issued"
+    },
+    {
+      "timestamp": "2025-08-17T13:16:34.809Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T13:17:51.596Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T13:18:01.280Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T13:32:38.314Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-17T13:32:44.021Z",
+      "user": "barathm0114@gmail.com",
+      "action": "MFA_FAILED",
+      "details": "Invalid format"
+    },
+    {
+      "timestamp": "2025-08-17T13:32:57.069Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-17T13:33:18.803Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, token issued"
+    },
+    {
+      "timestamp": "2025-08-17T13:33:19.760Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T13:33:41.481Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T13:34:04.982Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T13:34:38.273Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-17T13:35:02.938Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, token issued"
+    },
+    {
+      "timestamp": "2025-08-17T13:35:03.920Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T13:35:06.396Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T13:35:06.474Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T13:35:17.429Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_UPDATE_ROLE",
+      "details": "Changed barath0000@gmail.com to admin"
+    },
+    {
+      "timestamp": "2025-08-17T13:35:17.446Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T13:35:25.461Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_DELETE_USER",
+      "details": "Deleted: barath0000@gmail.com"
+    },
+    {
+      "timestamp": "2025-08-17T13:35:25.487Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T17:35:16.544Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-17T17:35:48.798Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, token issued"
+    },
+    {
+      "timestamp": "2025-08-17T17:35:50.472Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T17:35:52.722Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-17T17:35:52.726Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-17T17:35:55.136Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    }
+  ]
 }
