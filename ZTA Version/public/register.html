@@ -30,7 +30,18 @@
 
       <button type="submit">Register</button>
     </form>
-    <p>Already have an account? <a href="login.html">Login here</a></p>
+
+    <!-- QR Code Section -->
+    <div id="mfaSetup" style="display:none; margin-top:20px; text-align:center;">
+      <h3>Set up MFA</h3>
+      <p>Scan this QR code with your Google Authenticator / Authy app:</p>
+      <img id="qrCodeImg" src="" alt="QR Code" style="max-width:200px; margin:10px auto; display:block;" />
+      <p><b>Or manually enter this key:</b></p>
+      <p id="manualKey" style="font-weight:bold; color:#333;"></p>
+      <button id="goToLogin" style="margin-top:15px;">Proceed to Login</button>
+    </div>
+
+    <p style="margin-top:20px;">Already have an account? <a href="login.html">Login here</a></p>
   </div>
 
   <script src="register.js"></script>
