@@ -52,7 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        localStorage.setItem("jwtToken", data.token);
+        // Store both tokens
+        localStorage.setItem("accessToken", data.token);
+        localStorage.setItem("refreshToken", data.refreshToken);
         localStorage.setItem("userRole", data.role);
 
         alert("Login successful! Redirecting...");
@@ -66,3 +68,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+/* ===== Helper: Token Refresh ===== */
+async function refreshAccessToken() {
+  const refreshToken = localStorage.getItem("refreshToken");
+  if (!refreshToken) {
+    console.warn("No refresh token found. Please log in again.");
+    return null;
+  }
+
+  try {
+    const response = await fetch("http://localhost:3000/refresh-token", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ refreshToken })
+    });
+
+    const data = await response.json();
+
+    if (response.ok && data.success) {
+      localStorage.setItem("accessToken", data.accessToken);
+      console.log("✅ Access token refreshed");
+      return data.accessToken;
+    } else {
+      console.warn("Failed to refresh token:", data.message);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error refreshing token:", error);
+    return null;
+  }
+}
