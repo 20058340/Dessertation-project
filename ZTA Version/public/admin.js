@@ -1,5 +1,23 @@
-const token = localStorage.getItem("jwtToken");
-const role = localStorage.getItem("userRole");
+// --- Normalize/migrate localStorage keys (runs once) ---
+(function normalizeAuthKeys() {
+  // If older code stored jwtToken, upgrade it to accessToken
+  const oldJwt = localStorage.getItem("jwtToken");
+  if (oldJwt && !localStorage.getItem("accessToken")) {
+    localStorage.setItem("accessToken", oldJwt);
+    localStorage.removeItem("jwtToken");
+  }
+
+  // If older code stored 'user' instead of 'userRole', migrate it
+  const oldRole = localStorage.getItem("user");
+  if (oldRole && !localStorage.getItem("userRole")) {
+    localStorage.setItem("userRole", oldRole);
+    localStorage.removeItem("user");
+  }
+})();
+
+// Read the unified keys
+const token = localStorage.getItem("accessToken");
+const role  = localStorage.getItem("userRole");
 
 if (!token || role !== "admin") {
   alert("Access denied: Admins only");
@@ -10,10 +28,17 @@ if (!token || role !== "admin") {
 fetch("http://localhost:3000/api/profile", {
   headers: { Authorization: "Bearer " + token }
 })
-.then(res => res.json())
-.then(data => {
-  document.getElementById("adminUserInfo").innerText = `Hello, ${data.user.name} (Admin)`;
-});
+  .then(res => {
+    if (!res.ok) throw new Error("Unauthorized");
+    return res.json();
+  })
+  .then(data => {
+    document.getElementById("adminUserInfo").innerText = `Hello, ${data.user.name} (Admin)`;
+  })
+  .catch(() => {
+    alert("Session expired, please log in again.");
+    window.location.href = "login.html";
+  });
 
 // ========== USERS ==========
 let usersData = [];
@@ -66,11 +91,11 @@ function loadUsers() {
   fetch("http://localhost:3000/api/users", {
     headers: { Authorization: "Bearer " + token }
   })
-  .then(res => res.json())
-  .then(users => {
-    usersData = users;
-    displayUsers(usersData, currentPage);
-  });
+    .then(res => res.json())
+    .then(users => {
+      usersData = users;
+      displayUsers(usersData, currentPage);
+    });
 }
 
 window.deleteUser = function(email) {
@@ -98,11 +123,6 @@ document.getElementById("searchInput").addEventListener("input", function() {
   displayUsers(filtered, 1);
 });
 
-// CSV Export for Users
-document.getElementById("exportUsersBtn").addEventListener("click", () => {
-  exportCSV(usersData, ["Name", "Email", "Role"]);
-});
-
 // ========== LOGS ==========
 let logsData = [];
 const logsTableBody = document.querySelector("#logsTable tbody");
@@ -111,11 +131,11 @@ function loadLogs() {
   fetch("http://localhost:3000/api/logs", {
     headers: { Authorization: "Bearer " + token }
   })
-  .then(res => res.json())
-  .then(logs => {
-    logsData = logs;
-    displayLogs(logsData);
-  });
+    .then(res => res.json())
+    .then(logs => {
+      logsData = logs;
+      displayLogs(logsData);
+    });
 }
 
 function displayLogs(logs) {
@@ -142,12 +162,15 @@ document.getElementById("logSearchInput").addEventListener("input", function() {
   displayLogs(filtered);
 });
 
-// CSV Export for Logs
-document.getElementById("exportLogsBtn").addEventListener("click", () => {
+// CSV Export (users & logs)
+document.getElementById("exportUsersBtn")?.addEventListener("click", () => {
+  exportCSV(usersData, ["Name", "Email", "Role"]);
+});
+
+document.getElementById("exportLogsBtn")?.addEventListener("click", () => {
   exportCSV(logsData, ["Timestamp", "User", "Action", "Details"]);
 });
 
-// CSV Helper
 function exportCSV(data, headers) {
   if (!data.length) return alert("No data to export");
   const csvRows = [];
@@ -159,19 +182,16 @@ function exportCSV(data, headers) {
     });
     csvRows.push(values.join(","));
   });
-  const csvData = csvRows.join("\n");
-  const blob = new Blob([csvData], { type: "text/csv" });
-  const url = window.URL.createObjectURL(blob);
+  const blob = new Blob([csvRows.join("\n")], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
-  a.setAttribute("hidden", "");
   a.href = url;
   a.download = "export.csv";
-  document.body.appendChild(a);
   a.click();
-  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
-// ========== Tabs ==========
+// Tabs
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
@@ -183,12 +203,13 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
   });
 });
 
-// ========== Logout ==========
+// Logout
 document.getElementById("logoutBtn").addEventListener("click", () => {
-  localStorage.removeItem("jwtToken");
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken");
   localStorage.removeItem("userRole");
   window.location.href = "login.html";
 });
 
-// Load default tab
+// Initial load
 loadUsers();
