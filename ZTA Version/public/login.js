@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loginForm.style.display = "none";
         otpForm.style.display = "block";
       } else {
-        alert("Login failed: " + data.message);
+        alert("Login failed: " + (data.message || "Unknown error"));
       }
     } catch (error) {
       alert("Unable to connect to server.");
@@ -52,15 +52,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        // Store both tokens
-        localStorage.setItem("accessToken", data.token);
-        localStorage.setItem("refreshToken", data.refreshToken);
+        // Store tokens using the SAME keys your app will read later
+        localStorage.setItem("accessToken", data.token);         // short-lived access token
+        if (data.refreshToken) {
+          localStorage.setItem("refreshToken", data.refreshToken); // long-lived refresh token
+        }
         localStorage.setItem("userRole", data.role);
 
         alert("Login successful! Redirecting...");
         window.location.href = "index.html";
       } else {
-        alert("Code verification failed: " + data.message);
+        alert("Code verification failed: " + (data.message || "Unknown error"));
       }
     } catch (error) {
       alert("Unable to connect to server.");
@@ -78,7 +80,7 @@ async function refreshAccessToken() {
   }
 
   try {
-    const response = await fetch("http://localhost:3000/refresh-token", {
+    const response = await fetch("http://localhost:3000/refresh", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ refreshToken })
@@ -86,12 +88,15 @@ async function refreshAccessToken() {
 
     const data = await response.json();
 
-    if (response.ok && data.success) {
-      localStorage.setItem("accessToken", data.accessToken);
+    if (response.ok && data.token) {
+      localStorage.setItem("accessToken", data.token);
+      if (data.refreshToken) {
+        localStorage.setItem("refreshToken", data.refreshToken); // rotation
+      }
       console.log("✅ Access token refreshed");
-      return data.accessToken;
+      return data.token;
     } else {
-      console.warn("Failed to refresh token:", data.message);
+      console.warn("Failed to refresh token:", data.message || "Unknown error");
       return null;
     }
   } catch (error) {
