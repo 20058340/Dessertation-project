@@ -12,13 +12,14 @@ const app = express();
 const PORT = 3000;
 const saltRounds = 10;
 const JWT_SECRET = "your_super_secret_key";
+const REFRESH_SECRET = "your_refresh_secret_key"; 
 
 // Setup lowdb
 const adapter = new FileSync(path.join(__dirname, "db.json"));
 const db = low(adapter);
-db.defaults({ users: [], logs: [] }).write(); // ✅ added logs
+db.defaults({ users: [], logs: [] }).write(); 
 
-// ===== Helper: Log Event =====
+//  Helper: Log Event 
 function logEvent(userEmail, action, details = "") {
   const log = {
     timestamp: new Date().toISOString(),
@@ -163,7 +164,7 @@ app.post("/verify-mfa", (req, res) => {
   const jwtToken = jwt.sign(
     { email: user.email, role: user.role },
     JWT_SECRET,
-    { expiresIn: "1h" }
+    { expiresIn: "1min" }
   );
 
   logEvent(email, "LOGIN_SUCCESS", "MFA passed, token issued");
@@ -174,6 +175,37 @@ app.post("/verify-mfa", (req, res) => {
     token: jwtToken,
     role: user.role
   });
+});
+
+// REFRESH TOKEN ENDPOINT
+app.post("/refresh", (req, res) => {
+  const { refreshToken } = req.body;
+  if (!refreshToken) return res.status(401).json({ message: "Refresh token missing" });
+
+  const user = db.get("users").find({ refreshToken }).value();
+  if (!user) return res.status(403).json({ message: "Invalid refresh token" });
+
+  jwt.verify(refreshToken, REFRESH_SECRET, (err, decoded) => {
+    if (err) return res.status(403).json({ message: "Invalid or expired refresh token" });
+
+    const newAccessToken = jwt.sign(
+      { email: user.email, role: user.role },
+      JWT_SECRET,
+      { expiresIn: "1m" }
+    );
+
+    logEvent(user.email, "TOKEN_REFRESHED");
+
+    res.json({ token: newAccessToken });
+  });
+});
+
+// LOGOUT (invalidate refresh token)
+app.post("/logout", (req, res) => {
+  const { email } = req.body;
+  db.get("users").find({ email }).assign({ refreshToken: null }).write();
+  logEvent(email, "LOGOUT", "Refresh token cleared");
+  res.json({ message: "Logged out successfully" });
 });
 
 // PROFILE
