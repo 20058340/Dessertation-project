@@ -11,8 +11,8 @@ const qrcode = require("qrcode");
 const app = express();
 const PORT = 3000;
 const saltRounds = 10;
-const JWT_SECRET = "your_super_secret_key";
-const REFRESH_SECRET = "your_refresh_secret_key"; 
+const JWT_SECRET = "your_super_secret_key";          // access token secret
+const REFRESH_SECRET = "your_refresh_secret_key";    // refresh token secret
 
 // Setup lowdb
 const adapter = new FileSync(path.join(__dirname, "db.json"));
@@ -31,7 +31,7 @@ function logEvent(userEmail, action, details = "") {
   console.log("📜 LOG:", log);
 }
 
-// Middleware: verify token
+// Middleware: verify access token
 function verifyToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
@@ -82,7 +82,8 @@ app.post("/register", async (req, res) => {
       email, 
       password: hashedPassword, 
       role: role || "user",
-      mfa: { base32: secret.base32 }
+      mfa: { base32: secret.base32 },
+      refreshToken: null
     };
     db.get("users").push(newUser).write();
 
@@ -134,7 +135,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// VERIFY MFA (Step 2 - final login)
+// VERIFY MFA (Step 2 - final login) -> issues access + refresh tokens
 app.post("/verify-mfa", (req, res) => {
   const { email, token } = req.body;
 
@@ -161,48 +162,69 @@ app.post("/verify-mfa", (req, res) => {
     return res.status(401).json({ success: false, message: "Invalid or expired MFA code" });
   }
 
-  const jwtToken = jwt.sign(
+  // Issue short-lived access token + long-lived refresh token
+  const accessToken = jwt.sign(
     { email: user.email, role: user.role },
     JWT_SECRET,
-    { expiresIn: "1min" }
+    { expiresIn: "1m" }          // demo-short for testing expiry
+  );
+  const refreshToken = jwt.sign(
+    { email: user.email },
+    REFRESH_SECRET,
+    { expiresIn: "7d" }
   );
 
-  logEvent(email, "LOGIN_SUCCESS", "MFA passed, token issued");
+  // Persist/rotate refresh token
+  db.get("users").find({ email: user.email }).assign({ refreshToken }).write();
+
+  logEvent(email, "LOGIN_SUCCESS", "MFA passed, tokens issued");
 
   res.status(200).json({
     success: true,
     message: "Login successful",
-    token: jwtToken,
+    token: accessToken,
+    refreshToken,
     role: user.role
   });
 });
 
-// REFRESH TOKEN ENDPOINT
+// REFRESH TOKEN (rotate)
 app.post("/refresh", (req, res) => {
   const { refreshToken } = req.body;
   if (!refreshToken) return res.status(401).json({ message: "Refresh token missing" });
 
-  const user = db.get("users").find({ refreshToken }).value();
-  if (!user) return res.status(403).json({ message: "Invalid refresh token" });
-
+  // Verify signature & expiry
   jwt.verify(refreshToken, REFRESH_SECRET, (err, decoded) => {
     if (err) return res.status(403).json({ message: "Invalid or expired refresh token" });
 
+    const user = db.get("users").find({ email: decoded.email }).value();
+    if (!user || user.refreshToken !== refreshToken) {
+      return res.status(403).json({ message: "Refresh token mismatch" });
+    }
+
+    // Issue new pair (rotation)
     const newAccessToken = jwt.sign(
       { email: user.email, role: user.role },
       JWT_SECRET,
       { expiresIn: "1m" }
     );
+    const newRefreshToken = jwt.sign(
+      { email: user.email },
+      REFRESH_SECRET,
+      { expiresIn: "7d" }
+    );
 
-    logEvent(user.email, "TOKEN_REFRESHED");
+    db.get("users").find({ email: user.email }).assign({ refreshToken: newRefreshToken }).write();
 
-    res.json({ token: newAccessToken });
+    logEvent(user.email, "TOKEN_REFRESHED", "Refresh token rotated");
+
+    res.json({ token: newAccessToken, refreshToken: newRefreshToken });
   });
 });
 
-// LOGOUT (invalidate refresh token)
-app.post("/logout", (req, res) => {
-  const { email } = req.body;
+// LOGOUT (invalidate refresh token) – protected
+app.post("/logout", verifyToken, (req, res) => {
+  const email = req.user.email;
   db.get("users").find({ email }).assign({ refreshToken: null }).write();
   logEvent(email, "LOGOUT", "Refresh token cleared");
   res.json({ message: "Logged out successfully" });
