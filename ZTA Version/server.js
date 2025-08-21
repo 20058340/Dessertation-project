@@ -1,3 +1,4 @@
+// server.js
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -11,15 +12,17 @@ const qrcode = require("qrcode");
 const app = express();
 const PORT = 3000;
 const saltRounds = 10;
+
+// SECRETS (move to env vars for production)
 const JWT_SECRET = "your_super_secret_key";          // access token secret
 const REFRESH_SECRET = "your_refresh_secret_key";    // refresh token secret
 
-// Setup lowdb
+// ===== LowDB setup =====
 const adapter = new FileSync(path.join(__dirname, "db.json"));
 const db = low(adapter);
-db.defaults({ users: [], logs: [] }).write(); 
+db.defaults({ users: [], logs: [] }).write();
 
-//  Helper: Log Event 
+// ===== Helper: Audit Log =====
 function logEvent(userEmail, action, details = "") {
   const log = {
     timestamp: new Date().toISOString(),
@@ -31,20 +34,26 @@ function logEvent(userEmail, action, details = "") {
   console.log("📜 LOG:", log);
 }
 
-// Middleware: verify access token
+// ===== Middleware: verify access token =====
 function verifyToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
   if (!token) return res.status(401).json({ message: "Token missing" });
 
   jwt.verify(token, JWT_SECRET, (err, decoded) => {
-    if (err) return res.status(403).json({ message: "Invalid token" });
+    if (err) {
+      if (err.name === "TokenExpiredError") {
+        // 401 => client should try refresh
+        return res.status(401).json({ message: "Token expired" });
+      }
+      return res.status(403).json({ message: "Invalid token" });
+    }
     req.user = decoded;
     next();
   });
 }
 
-// Middleware: role check
+// ===== Middleware: role check =====
 function authorizeRoles(...allowedRoles) {
   return (req, res, next) => {
     if (!allowedRoles.includes(req.user.role)) {
@@ -57,15 +66,16 @@ function authorizeRoles(...allowedRoles) {
 app.use(cors());
 app.use(express.json());
 
-// Default route
+// ===== Static / default route =====
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
 app.use(express.static(path.join(__dirname, "public")));
 
-// REGISTER
+// ===== REGISTER =====
 app.post("/register", async (req, res) => {
   const { name, email, password, role } = req.body;
+
   const existingUser = db.get("users").find({ email }).value();
   if (existingUser) {
     logEvent(email, "REGISTER_FAILED", "User already exists");
@@ -75,27 +85,30 @@ app.post("/register", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
+    // Create TOTP secret for Google Authenticator
     const secret = speakeasy.generateSecret({ name: `NostraApp (${email})` });
 
-    const newUser = { 
-      name, 
-      email, 
-      password: hashedPassword, 
+    const newUser = {
+      name,
+      email,
+      password: hashedPassword,
       role: role || "user",
       mfa: { base32: secret.base32 },
       refreshToken: null
     };
+
     db.get("users").push(newUser).write();
 
+    // QR code for enrolling the TOTP secret in an Authenticator app
     const qrCodeUrl = await qrcode.toDataURL(secret.otpauth_url);
 
     logEvent(email, "REGISTER_SUCCESS", `Role: ${role || "user"}`);
 
-    res.status(201).json({ 
-      success: true, 
-      message: "User registered successfully", 
+    res.status(201).json({
+      success: true,
+      message: "User registered successfully",
       qrCodeUrl,
-      base32: secret.base32
+      base32: secret.base32 // optional: for fallback/manual entry
     });
   } catch (err) {
     console.error(err);
@@ -104,9 +117,10 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// LOGIN (Step 1 - password check)
+// ===== LOGIN (step 1: password) =====
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
+
   const user = db.get("users").find({ email }).value();
   if (!user) {
     logEvent(email, "LOGIN_FAILED", "User not found");
@@ -135,7 +149,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// VERIFY MFA (Step 2 - final login) -> issues access + refresh tokens
+// ===== VERIFY MFA (step 2) — issue access + refresh tokens =====
 app.post("/verify-mfa", (req, res) => {
   const { email, token } = req.body;
 
@@ -162,19 +176,19 @@ app.post("/verify-mfa", (req, res) => {
     return res.status(401).json({ success: false, message: "Invalid or expired MFA code" });
   }
 
-  // Issue short-lived access token + long-lived refresh token
+  // Short-lived access token + long-lived refresh token
   const accessToken = jwt.sign(
     { email: user.email, role: user.role },
     JWT_SECRET,
-    { expiresIn: "1m" }          // demo-short for testing expiry
+    { expiresIn: "15m" }
   );
   const refreshToken = jwt.sign(
     { email: user.email },
     REFRESH_SECRET,
-    { expiresIn: "7d" }
+    { expiresIn: "30d" } // 30 days
   );
 
-  // Persist/rotate refresh token
+  // Persist latest refresh token (rotation anchor)
   db.get("users").find({ email: user.email }).assign({ refreshToken }).write();
 
   logEvent(email, "LOGIN_SUCCESS", "MFA passed, tokens issued");
@@ -188,12 +202,11 @@ app.post("/verify-mfa", (req, res) => {
   });
 });
 
-// REFRESH TOKEN (rotate)
+// ===== REFRESH TOKEN (rotation) =====
 app.post("/refresh", (req, res) => {
   const { refreshToken } = req.body;
   if (!refreshToken) return res.status(401).json({ message: "Refresh token missing" });
 
-  // Verify signature & expiry
   jwt.verify(refreshToken, REFRESH_SECRET, (err, decoded) => {
     if (err) return res.status(403).json({ message: "Invalid or expired refresh token" });
 
@@ -202,16 +215,16 @@ app.post("/refresh", (req, res) => {
       return res.status(403).json({ message: "Refresh token mismatch" });
     }
 
-    // Issue new pair (rotation)
+    // Issue new pair (rotate)
     const newAccessToken = jwt.sign(
       { email: user.email, role: user.role },
       JWT_SECRET,
-      { expiresIn: "1m" }
+      { expiresIn: "15m" }
     );
     const newRefreshToken = jwt.sign(
       { email: user.email },
       REFRESH_SECRET,
-      { expiresIn: "7d" }
+      { expiresIn: "30d" } // ✅ keep consistent with issue time
     );
 
     db.get("users").find({ email: user.email }).assign({ refreshToken: newRefreshToken }).write();
@@ -222,7 +235,7 @@ app.post("/refresh", (req, res) => {
   });
 });
 
-// LOGOUT (invalidate refresh token) – protected
+// ===== LOGOUT (invalidate refresh token) =====
 app.post("/logout", verifyToken, (req, res) => {
   const email = req.user.email;
   db.get("users").find({ email }).assign({ refreshToken: null }).write();
@@ -230,7 +243,7 @@ app.post("/logout", verifyToken, (req, res) => {
   res.json({ message: "Logged out successfully" });
 });
 
-// PROFILE
+// ===== PROFILE =====
 app.get("/api/profile", verifyToken, (req, res) => {
   const user = db.get("users").find({ email: req.user.email }).value();
   if (!user) {
@@ -238,10 +251,13 @@ app.get("/api/profile", verifyToken, (req, res) => {
     return res.status(404).json({ message: "User not found" });
   }
   logEvent(req.user.email, "PROFILE_VIEW", "User accessed profile");
-  res.json({ message: "Access granted ✅", user: { name: user.name, email: user.email, role: user.role } });
+  res.json({
+    message: "Access granted ✅",
+    user: { name: user.name, email: user.email, role: user.role }
+  });
 });
 
-//  Get all users (admin only)
+// ===== ADMIN: list users =====
 app.get("/api/users", verifyToken, authorizeRoles("admin"), (req, res) => {
   logEvent(req.user.email, "ADMIN_VIEW_USERS");
   const users = db.get("users").map(u => ({
@@ -252,7 +268,7 @@ app.get("/api/users", verifyToken, authorizeRoles("admin"), (req, res) => {
   res.json(users);
 });
 
-// Delete a user by email (admin only)
+// ===== ADMIN: delete user =====
 app.delete("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) => {
   const { email } = req.params;
   db.get("users").remove({ email }).write();
@@ -260,12 +276,12 @@ app.delete("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res)
   res.json({ message: `User ${email} deleted successfully` });
 });
 
-// Change a user's role (admin only)
+// ===== ADMIN: update role =====
 app.put("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) => {
   const { email } = req.params;
   const { role } = req.body;
+
   const user = db.get("users").find({ email }).value();
-  
   if (!user) {
     logEvent(req.user.email, "ADMIN_UPDATE_ROLE_FAILED", `User not found: ${email}`);
     return res.status(404).json({ message: "User not found" });
@@ -276,11 +292,12 @@ app.put("/api/users/:email", verifyToken, authorizeRoles("admin"), (req, res) =>
   res.json({ message: `User ${email} role updated to ${role}` });
 });
 
-// ADMIN ONLY - Logs
+// ===== ADMIN: view logs =====
 app.get("/api/logs", verifyToken, authorizeRoles("admin"), (req, res) => {
   logEvent(req.user.email, "ADMIN_VIEW_LOGS");
   const logs = db.get("logs").value();
   res.json(logs);
 });
 
+// ===== Start server =====
 app.listen(PORT, () => console.log(` Server running at http://localhost:${PORT}`));
