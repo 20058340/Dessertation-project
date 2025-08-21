@@ -62,94 +62,54 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 <script src="index.js" defer> </script>
 
 <script>
-    async function refreshAccessTokenIfNeeded(response) {
-      if (response.status === 401 || response.status === 403) {
-        const rt = localStorage.getItem("refreshToken");
-        if (!rt) return null;
+  // Use accessToken, not jwtToken
+  const token = localStorage.getItem("accessToken");
+  const role  = localStorage.getItem("userRole");
 
-        const res = await fetch("http://localhost:3000/refresh", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ refreshToken: rt })
-        });
+  if (!token) {
+    alert("No token found. Please login.");
+    window.location.href = "login.html";
+  }
 
-        if (!res.ok) return null;
-        const data = await res.json();
-        if (data.token) {
-          localStorage.setItem("accessToken", data.token);
-        }
-        if (data.refreshToken) {
-          localStorage.setItem("refreshToken", data.refreshToken);
-        }
-        return data.token || null;
+  fetch("http://localhost:3000/api/profile", {
+    method: "GET",
+    headers: { Authorization: "Bearer " + token }
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("Unauthorized");
+      return res.json();
+    })
+    .then((data) => {
+      document.getElementById("userInfo").innerText = `Hello, ${data.user.name}!`;
+
+      // If admin, add Admin Panel link
+      if (role === "admin") {
+        const adminLink = document.createElement("p");
+        adminLink.classList.add("navbar-link");
+        adminLink.innerHTML = `<a href="admin.html">Admin Panel</a>`;
+        document.querySelector(".navbar-links").appendChild(adminLink);
+
+        const adminSideLink = document.createElement("p");
+        adminSideLink.classList.add("side-navbar-link");
+        adminSideLink.innerHTML = `<a href="admin.html">Admin Panel</a>`;
+        document.querySelector(".side-navbar-links").appendChild(adminSideLink);
       }
-      return null;
-    }
-
-    async function apiFetch(url, opts = {}) {
-      const accessToken = localStorage.getItem("accessToken");
-      if (!opts.headers) opts.headers = {};
-      if (accessToken) {
-        opts.headers.Authorization = "Bearer " + accessToken;
-      }
-
-      let res = await fetch(url, opts);
-      if (res.status === 401 || res.status === 403) {
-        const newToken = await refreshAccessTokenIfNeeded(res);
-        if (newToken) {
-          opts.headers.Authorization = "Bearer " + newToken;
-          res = await fetch(url, opts); // retry once
-        }
-      }
-      return res;
-    }
-
-    // === Page Init ===
-    (async function initPage() {
-      const token = localStorage.getItem("accessToken");
-      const role = localStorage.getItem("userRole");
-
-      if (!token) {
-        alert("No token found. Please login.");
-        window.location.href = "login.html";
-        return;
-      }
-
-      try {
-        const res = await apiFetch("http://localhost:3000/api/profile", { method: "GET" });
-        if (!res.ok) throw new Error("Unauthorized");
-        const data = await res.json();
-
-        document.getElementById("userInfo").innerText = `Hello, ${data.user.name}!`;
-
-        // Add Admin Panel link if admin
-        if (role === "admin") {
-          const adminLink = document.createElement("p");
-          adminLink.classList.add("navbar-link");
-          adminLink.innerHTML = `<a href="admin.html">Admin Panel</a>`;
-          document.querySelector(".navbar-links").appendChild(adminLink);
-
-          const adminSideLink = document.createElement("p");
-          adminSideLink.classList.add("side-navbar-link");
-          adminSideLink.innerHTML = `<a href="admin.html">Admin Panel</a>`;
-          document.querySelector(".side-navbar-links").appendChild(adminSideLink);
-        }
-      } catch (err) {
-        console.error("Access denied:", err);
-        alert("Access denied. Redirecting to login...");
-        window.location.href = "login.html";
-      }
-    })();
-
-    // Logout
-    document.getElementById("logoutBtn")?.addEventListener("click", () => {
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-      localStorage.removeItem("userRole");
+    })
+    .catch((err) => {
+      console.error("Access denied:", err);
+      alert("Access denied. Redirecting to login...");
       window.location.href = "login.html";
     });
-  </script>
-    
+
+  // Logout clears BOTH tokens + role
+  document.getElementById("logoutBtn")?.addEventListener("click", () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("userRole");
+    window.location.href = "login.html";
+  });
+</script>
+
 
 
 <!-- JWT token protecting in network -->
@@ -164,58 +124,6 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     </div>
     
 
-<script>
-  const token = localStorage.getItem("accessToken");
-  const role = localStorage.getItem("userRole");
-
-  if (!token) {
-    alert("No token found. Please login.");
-    window.location.href = "login.html";
-  }
-
-  fetch("http://localhost:3000/api/profile", {
-    method: "GET",
-    headers: {
-      Authorization: "Bearer " + token
-    }
-  })
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Unauthorized");
-      }
-      return res.json();
-    })
-    .then((data) => {
-      document.getElementById("userInfo").innerText = `Hello, ${data.user.name}!`;
-
-      // ✅ If admin, add Admin Panel link dynamically
-      if (role === "admin") {
-        // Add to top navbar
-        const adminLink = document.createElement("p");
-        adminLink.classList.add("navbar-link");
-        adminLink.innerHTML = `<a href="admin.html">Admin Panel</a>`;
-        document.querySelector(".navbar-links").appendChild(adminLink);
-
-        // Add to sidebar menu
-        const adminSideLink = document.createElement("p");
-        adminSideLink.classList.add("side-navbar-link");
-        adminSideLink.innerHTML = `<a href="admin.html">Admin Panel</a>`;
-        document.querySelector(".side-navbar-links").appendChild(adminSideLink);
-      }
-    })
-    .catch((err) => {
-      console.error("Access denied:", err);
-      alert("Access denied. Redirecting to login...");
-      window.location.href = "login.html";
-    });
-
-  // ✅ Logout functionality
-  document.getElementById("logoutBtn")?.addEventListener("click", () => {
-    localStorage.removeItem("jwtToken");
-    localStorage.removeItem("userRole");
-    window.location.href = "login.html";
-  });
-</script>
 
 
     
@@ -271,7 +179,9 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
         <script>
             document.getElementById("logoutBtn")?.addEventListener("click", () => {
-            localStorage.removeItem("jwtToken"); // clear token from local storage
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("refreshToken");
+
             window.location.href = "login.html"; // redirect to login page
             });
         </script>
