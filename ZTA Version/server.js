@@ -8,14 +8,15 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const speakeasy = require("speakeasy");
 const qrcode = require("qrcode");
+const crypto = require("crypto");
 
 const app = express();
 const PORT = 3000;
 const saltRounds = 10;
 
 // ===== SECRETS (use env vars in production) =====
-const JWT_SECRET = "your_super_secret_key";          // access token secret
-const REFRESH_SECRET = "your_refresh_secret_key";    // refresh token secret
+const JWT_SECRET = "your_super_secret_key";          
+const REFRESH_SECRET = "your_refresh_secret_key";    
 
 // ===== LowDB setup =====
 const adapter = new FileSync(path.join(__dirname, "db.json"));
@@ -491,6 +492,49 @@ app.get("/api/logs", verifyToken, enforceKnownDevice, authorizeRoles("admin"), (
   logEvent(req.user.email, "ADMIN_VIEW_LOGS");
   const logs = db.get("logs").value();
   res.json(logs);
+});
+
+// In-memory reset token store
+const resetTokens = new Map(); // email -> { token, expiresAt }
+
+// Request password reset
+app.post("/forgot-password", (req, res) => {
+  const { email } = req.body;
+  const user = db.get("users").find({ email }).value();
+
+  if (!user) {
+    logEvent(email, "FORGOT_PASSWORD_FAILED", "Email not found");
+    return res.status(404).json({ success: false, message: "User not found" });
+  }
+
+  const token = crypto.randomBytes(20).toString("hex");
+  const expiresAt = Date.now() + 15 * 60 * 1000; // 15 minutes
+
+  resetTokens.set(email, { token, expiresAt });
+
+  logEvent(email, "FORGOT_PASSWORD_REQUEST", "Reset token issued");
+
+  // In real app → send via email
+  res.json({ success: true, message: "Reset token generated", resetToken: token });
+});
+
+// Reset password with token
+app.post("/reset-password", async (req, res) => {
+  const { email, token, newPassword } = req.body;
+  const entry = resetTokens.get(email);
+
+  if (!entry || entry.token !== token || Date.now() > entry.expiresAt) {
+    logEvent(email, "RESET_PASSWORD_FAILED", "Invalid or expired token");
+    return res.status(400).json({ success: false, message: "Invalid or expired token" });
+  }
+
+  const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+  db.get("users").find({ email }).assign({ password: hashedPassword }).write();
+
+  resetTokens.delete(email);
+  logEvent(email, "RESET_PASSWORD_SUCCESS", "Password updated");
+
+  res.json({ success: true, message: "Password updated successfully" });
 });
 
 // Start server
