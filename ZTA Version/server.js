@@ -495,10 +495,20 @@ app.get("/api/logs", verifyToken, enforceKnownDevice, authorizeRoles("admin"), (
   res.json(logs);
 });
 
-// In-memory reset token store
-const resetTokens = new Map(); // email -> { token, expiresAt }
+// =================================================
+// EMAIL TRANSPORTER for Forgot Password
+// =================================================
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "barathm0114@gmail.com",       
+    pass: "ssyn wiep fwjs yuhw"          
+  }
+});
 
-// Request password reset
+// =================================================
+//  Forgot Password - Send Reset Email
+// =================================================
 app.post("/forgot-password", (req, res) => {
   const { email } = req.body;
   const user = db.get("users").find({ email }).value();
@@ -509,32 +519,54 @@ app.post("/forgot-password", (req, res) => {
   }
 
   const token = crypto.randomBytes(20).toString("hex");
-  const expiresAt = Date.now() + 15 * 60 * 1000; // 15 minutes
+  const expiresAt = Date.now() + 15 * 60 * 1000; // 15 min
 
-  resetTokens.set(email, { token, expiresAt });
+  db.get("users").find({ email }).assign({ resetToken: token, resetExpires: expiresAt }).write();
 
-  logEvent(email, "FORGOT_PASSWORD_REQUEST", "Reset token issued");
+  const resetLink = `http://localhost:3000/reset.html?token=${token}&email=${encodeURIComponent(email)}`;
 
-  // In real app → send via email
-  res.json({ success: true, message: "Reset token generated", resetToken: token });
+  // Send reset email
+  transporter.sendMail({
+    from: '"Nostra Security" <yourgmail@gmail.com>',
+    to: email,
+    subject: "Password Reset Request",
+    html: `
+      <h3>Password Reset</h3>
+      <p>You requested a password reset. Click below link:</p>
+      <a href="${resetLink}">${resetLink}</a>
+      <p>This link will expire in 15 minutes.</p>
+    `
+  }, (err) => {
+    if (err) {
+      console.error("Email error:", err);
+      return res.status(500).json({ success: false, message: "Failed to send reset email" });
+    }
+    logEvent(email, "FORGOT_PASSWORD_REQUEST", "Reset link sent by email");
+    res.json({ success: true, message: "Reset link sent to your email" });
+  });
 });
 
-// Reset password with token
+// =================================================
+// Reset Password
+// =================================================
 app.post("/reset-password", async (req, res) => {
   const { email, token, newPassword } = req.body;
-  const entry = resetTokens.get(email);
+  const user = db.get("users").find({ email }).value();
 
-  if (!entry || entry.token !== token || Date.now() > entry.expiresAt) {
+  if (!user || user.resetToken !== token || Date.now() > user.resetExpires) {
     logEvent(email, "RESET_PASSWORD_FAILED", "Invalid or expired token");
     return res.status(400).json({ success: false, message: "Invalid or expired token" });
   }
 
   const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
-  db.get("users").find({ email }).assign({ password: hashedPassword }).write();
 
-  resetTokens.delete(email);
+  db.get("users").find({ email }).assign({
+    password: hashedPassword,
+    resetToken: null,
+    resetExpires: null
+  }).write();
+
   logEvent(email, "RESET_PASSWORD_SUCCESS", "Password updated");
-
   res.json({ success: true, message: "Password updated successfully" });
 });
 
