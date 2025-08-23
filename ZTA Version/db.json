@@ -3,12 +3,12 @@
     {
       "name": "Barath Mani",
       "email": "barathm0114@gmail.com",
-      "password": "$2b$10$iGcup7Jp/F1Zzb5bEMks.uTz5FLGvZcWIwgOGeGgaqtBoulOEhmJO",
+      "password": "$2b$10$ez8nOTqoBZbDUhB5ktamCO58V5MDuXt7f7Zk86mlmHQzqI1dytih2",
       "role": "admin",
       "mfa": {
         "base32": "FZ5XCRLXJRSX2QLYLNYSU6SSME4GQV2WPV3FQKTLHB2VI3BQM5JA"
       },
-      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhcmF0aG0wMTE0QGdtYWlsLmNvbSIsImlhdCI6MTc1NTkwODY4NywiZXhwIjoxNzU4NTAwNjg3fQ.2KNrFkErt8TkCFeOHTTUT0upgDYAJyVOz2VTMYcZ64E",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhcmF0aG0wMTE0QGdtYWlsLmNvbSIsImlhdCI6MTc1NTkxMzkxNSwiZXhwIjoxNzU4NTA1OTE1fQ.VVongddP4qnfoMAuwx5S7xpsqlrMc0TnvWxyEY3c3Xs",
       "devices": [
         "dev_4131282642-2516384121",
         "dev_675699053-2001897099",
@@ -16,7 +16,9 @@
       ],
       "ips": [
         "::ffff:127.0.0.1"
-      ]
+      ],
+      "resetToken": null,
+      "resetExpires": null
     },
     {
       "name": "Barath",
@@ -30,7 +32,23 @@
       "devices": [],
       "ips": [
         "::ffff:127.0.0.1"
-      ]
+      ],
+      "resetToken": "60541b1d6afc3f04ddf2283b6a6f84fc82e61dff",
+      "resetExpires": 1755912969832
+    },
+    {
+      "name": "Akash",
+      "email": "akashdhakal011@gmail.com",
+      "password": "$2b$10$M3.OPtYggziUZaZfYRpmy.zj3FK5FCQyKNN8GaHM2LO1Tm5TxV83C",
+      "role": "user",
+      "mfa": {
+        "base32": "NESFIWTUGR2TIRCKGNEW2M3HKBMHWVJYMY6F46BTJZEFKSSVN5YQ"
+      },
+      "refreshToken": null,
+      "devices": [],
+      "ips": [],
+      "resetToken": "c96876ba46dde7875441cb3508677c046e67b11a",
+      "resetExpires": 1755914867766
     }
   ],
   "otps": [],
@@ -6334,6 +6352,156 @@
       "user": "barathm0114@gmail.com",
       "action": "LOGIN_STEP1_SUCCESS",
       "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T01:08:48.652Z",
+      "user": "barathm0114@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T01:09:27.342Z",
+      "user": "barathm0114@gmail.com",
+      "action": "RESET_PASSWORD_FAILED",
+      "details": "Invalid or expired token"
+    },
+    {
+      "timestamp": "2025-08-23T01:15:51.427Z",
+      "user": "barathm0114@gmail.com",
+      "action": "RESET_PASSWORD_SUCCESS",
+      "details": "Password updated"
+    },
+    {
+      "timestamp": "2025-08-23T01:15:59.582Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T01:16:11.564Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T01:16:12.217Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T01:16:14.330Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T01:16:14.335Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T01:19:19.572Z",
+      "user": "barathm0114@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T01:20:23.334Z",
+      "user": "barathm0114@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T01:21:01.348Z",
+      "user": "barath0000@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T01:21:10.374Z",
+      "user": "barath0000@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T01:23:40.624Z",
+      "user": "akashdhakal011@gmail.com",
+      "action": "FORGOT_PASSWORD_FAILED",
+      "details": "Email not found"
+    },
+    {
+      "timestamp": "2025-08-23T01:24:21.209Z",
+      "user": "akashdhakal011@gmail.com",
+      "action": "REGISTER_SUCCESS",
+      "details": "Role: user"
+    },
+    {
+      "timestamp": "2025-08-23T01:35:52.148Z",
+      "user": "barathm0114@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T01:51:20.008Z",
+      "user": "barathm0114@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T01:51:37.210Z",
+      "user": "barathm0114@gmail.com",
+      "action": "RESET_PASSWORD_SUCCESS",
+      "details": "Password updated"
+    },
+    {
+      "timestamp": "2025-08-23T01:51:44.053Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T01:51:55.763Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T01:51:56.563Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T01:51:58.341Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T01:51:58.347Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T01:52:42.402Z",
+      "user": "akashdhakal011@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T01:52:44.584Z",
+      "user": "akashdhakal011@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T01:52:48.469Z",
+      "user": "akashdhakal011@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
     }
   ]
 }
