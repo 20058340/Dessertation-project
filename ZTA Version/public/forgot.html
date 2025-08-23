@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Forgot Password</h2>
+  <form id="forgotForm">
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <button type="submit">Send Reset Token</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    document.getElementById("forgotForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+
+      try {
+        const res = await fetch("http://localhost:3000/forgot-password", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          document.getElementById("message").innerText = 
+            `Reset token generated: ${data.resetToken}\n(Use it in Reset Password page)`;
+        } else {
+          document.getElementById("message").innerText = data.message || "Error sending reset.";
+        }
+      } catch (err) {
+        document.getElementById("message").innerText = "Server error.";
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
