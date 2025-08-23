@@ -59,12 +59,15 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 </script> -->
 
 
-<script src="index.js" defer> </script>
-
 <script>
-  // Use accessToken, not jwtToken
   const token = localStorage.getItem("accessToken");
   const role  = localStorage.getItem("userRole");
+
+  // 📌 ensure deviceId exists
+  if (!localStorage.getItem("deviceId")) {
+    localStorage.setItem("deviceId", crypto.randomUUID());
+  }
+  const deviceId = localStorage.getItem("deviceId");
 
   if (!token) {
     alert("No token found. Please login.");
@@ -73,7 +76,10 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
   fetch("http://localhost:3000/api/profile", {
     method: "GET",
-    headers: { Authorization: "Bearer " + token }
+    headers: { 
+      Authorization: "Bearer " + token,
+      "X-Device-Id": deviceId   // 👈 send deviceId
+    }
   })
     .then((res) => {
       if (!res.ok) throw new Error("Unauthorized");
@@ -82,7 +88,6 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     .then((data) => {
       document.getElementById("userInfo").innerText = `Hello, ${data.user.name}!`;
 
-      // If admin, add Admin Panel link
       if (role === "admin") {
         const adminLink = document.createElement("p");
         adminLink.classList.add("navbar-link");
@@ -97,18 +102,19 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     })
     .catch((err) => {
       console.error("Access denied:", err);
-      alert("Access denied. Redirecting to login...");
+      alert("Access denied (device mismatch). Redirecting to login...");
       window.location.href = "login.html";
     });
 
-  // Logout clears BOTH tokens + role
   document.getElementById("logoutBtn")?.addEventListener("click", () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("userRole");
+    localStorage.removeItem("deviceId");
     window.location.href = "login.html";
   });
 </script>
+
 
 
 
