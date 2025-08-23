@@ -189,3 +189,76 @@ body::before {
   background: #2d5f94;
   transform: translateY(0);
 }
+
+
+/* Forgot & Reset Password Pages */
+.auth-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-container h2 {
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+.auth-container input:focus {
+  border-color: #3a7bd5;
+  outline: none;
+}
+
+/* Button */
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #3a7bd5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.auth-container button:hover {
+  background-color: #336cc9;
+}
+
+/* Status message */
+.auth-status {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Link back to login */
+.auth-container a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #3a7bd5;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
