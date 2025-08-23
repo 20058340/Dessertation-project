@@ -3,52 +3,20 @@
     {
       "name": "Barath Mani",
       "email": "barathm0114@gmail.com",
-      "password": "$2b$10$ez8nOTqoBZbDUhB5ktamCO58V5MDuXt7f7Zk86mlmHQzqI1dytih2",
+      "password": "$2b$10$mcr21VcALDyOfPwT1/oIEuuNYXAA4ZnSbJ8rULly.ecQvTJNIvRq2",
       "role": "admin",
       "mfa": {
-        "base32": "FZ5XCRLXJRSX2QLYLNYSU6SSME4GQV2WPV3FQKTLHB2VI3BQM5JA"
+        "base32": "JAUEK7KTHBOVKZCTII4UST2XMIXUKJJ6JQ2WQY2BOM3FES3EIYZA"
       },
-      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhcmF0aG0wMTE0QGdtYWlsLmNvbSIsImlhdCI6MTc1NTkxMzkxNSwiZXhwIjoxNzU4NTA1OTE1fQ.VVongddP4qnfoMAuwx5S7xpsqlrMc0TnvWxyEY3c3Xs",
+      "refreshToken": null,
       "devices": [
-        "dev_4131282642-2516384121",
-        "dev_675699053-2001897099",
-        "5da8f163-160d-4005-977e-7561d45f824c"
+        "dev_2850156236-1439788493"
       ],
       "ips": [
         "::ffff:127.0.0.1"
       ],
       "resetToken": null,
       "resetExpires": null
-    },
-    {
-      "name": "Barath",
-      "email": "barath0000@gmail.com",
-      "password": "$2b$10$acLbuakiFvxo.PnRnWqBY.AlnRbOii4cFETNrmk4PFgLAdwpQAA7O",
-      "role": "user",
-      "mfa": {
-        "base32": "OB2D6S35G5HSCT2YMN6UA5DYIV5WC6DUHFBWWUKFEMQSI5LPONCQ"
-      },
-      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhcmF0aDAwMDBAZ21haWwuY29tIiwiaWF0IjoxNzU1ODIyNjQ2LCJleHAiOjE3NTg0MTQ2NDZ9.osZInjFteyqaz0_aePvuxuaTWZUWkyX2eOAPikTjGDc",
-      "devices": [],
-      "ips": [
-        "::ffff:127.0.0.1"
-      ],
-      "resetToken": "60541b1d6afc3f04ddf2283b6a6f84fc82e61dff",
-      "resetExpires": 1755912969832
-    },
-    {
-      "name": "Akash",
-      "email": "akashdhakal011@gmail.com",
-      "password": "$2b$10$M3.OPtYggziUZaZfYRpmy.zj3FK5FCQyKNN8GaHM2LO1Tm5TxV83C",
-      "role": "user",
-      "mfa": {
-        "base32": "NESFIWTUGR2TIRCKGNEW2M3HKBMHWVJYMY6F46BTJZEFKSSVN5YQ"
-      },
-      "refreshToken": null,
-      "devices": [],
-      "ips": [],
-      "resetToken": "c96876ba46dde7875441cb3508677c046e67b11a",
-      "resetExpires": 1755914867766
     }
   ],
   "otps": [],
@@ -6502,6 +6470,921 @@
       "user": "akashdhakal011@gmail.com",
       "action": "FORGOT_PASSWORD_REQUEST",
       "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T02:48:56.560Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T02:49:00.218Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T02:49:17.226Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T02:49:17.945Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:49:19.731Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:49:19.736Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T02:52:00.437Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T02:52:11.850Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T02:52:12.635Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:04.236Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:04.798Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:04.972Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:05.156Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:05.405Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:05.529Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:11.809Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:22.585Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:23.376Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:37.931Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:45.049Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T02:53:45.882Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:57:05.729Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:57:42.268Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:57:56.105Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-23T02:58:07.617Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:58:17.429Z",
+      "user": "barathm0114@gmail.com",
+      "action": "DEVICE_BLOCKED",
+      "details": "Unknown device: FAKE-DEVICE-XYZ"
+    },
+    {
+      "timestamp": "2025-08-23T02:58:46.538Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:59:07.890Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:59:07.895Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T02:59:30.997Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T02:59:42.037Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T03:00:11.525Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-23T03:01:25.730Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T03:01:38.790Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T03:01:39.401Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T10:33:45.800Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T10:34:09.121Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T10:34:09.828Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T10:34:21.481Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T10:35:00.822Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T10:35:00.832Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T10:36:08.974Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T10:37:00.719Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T10:37:11.157Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T10:37:11.849Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T10:37:22.757Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T10:37:37.650Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T10:37:46.899Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T10:38:00.214Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T10:38:23.426Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T10:38:31.727Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T10:38:32.537Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T10:38:54.745Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T10:38:54.753Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T11:54:36.794Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T11:55:02.121Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device added. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T11:55:52.851Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T11:56:08.064Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T11:57:10.071Z",
+      "user": "barathm0114@gmail.com",
+      "action": "REGISTER_SUCCESS",
+      "details": "Role: admin"
+    },
+    {
+      "timestamp": "2025-08-23T11:57:43.437Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T11:57:48.228Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device added. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:14:42.309Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:15:05.111Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:15:36.602Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:15:46.550Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:15:47.201Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T12:15:47.213Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T12:15:51.251Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:15:52.384Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T12:15:52.396Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T12:15:54.935Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T12:15:55.346Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T12:15:56.050Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T12:15:56.460Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T12:15:57.326Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T12:15:57.638Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T12:18:48.106Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:18:55.046Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:20:04.785Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:20:16.887Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:21:37.515Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:21:49.267Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:27:01.503Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:27:09.818Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:28:01.242Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:28:40.326Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:30:21.507Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:30:29.513Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:35:04.983Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:35:15.997Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:38:48.474Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:38:59.007Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:38:59.750Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T12:39:01.719Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T12:39:01.724Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T12:40:02.702Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:40:08.248Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:40:08.781Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T12:40:10.448Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T12:40:10.453Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T12:44:54.552Z",
+      "user": "barathm0114@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T12:45:46.730Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T12:45:51.867Z",
+      "user": "barathm0114@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T12:46:28.554Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T12:49:21.048Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:49:31.451Z",
+      "user": "barathm0114@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T12:52:16.550Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:52:30.425Z",
+      "user": "barathm0114@gmail.com",
+      "action": "MFA_FAILED",
+      "details": "Invalid/expired code"
+    },
+    {
+      "timestamp": "2025-08-23T12:52:37.671Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:52:38.511Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T12:52:43.310Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T12:54:53.607Z",
+      "user": "barathm0114@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-23T12:55:06.623Z",
+      "user": "barathm0114@gmail.com",
+      "action": "RESET_PASSWORD_SUCCESS",
+      "details": "Password updated"
+    },
+    {
+      "timestamp": "2025-08-23T12:55:12.445Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T12:55:22.733Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T12:55:23.336Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T12:55:37.242Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:08:16.518Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T13:08:18.682Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T13:08:27.604Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:08:28.489Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:08:28.496Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:09:07.826Z",
+      "user": "barathm0114@gmail.com",
+      "action": "MFA_FAILED",
+      "details": "Invalid/expired code"
+    },
+    {
+      "timestamp": "2025-08-23T13:09:13.971Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:09:14.367Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:09:14.989Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:13:58.630Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T13:14:00.634Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T13:14:07.983Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:14:53.259Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T13:14:54.695Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T13:15:02.944Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:15:03.573Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:15:03.577Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:15:05.911Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGOUT",
+      "details": "Refresh token cleared & cookie removed"
+    },
+    {
+      "timestamp": "2025-08-23T13:15:26.673Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T13:15:35.827Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:15:37.074Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:15:37.088Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:16:53.114Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:17:09.283Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T13:17:17.667Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:22:08.917Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T13:22:19.265Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:22:20.080Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:22:29.087Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:22:45.838Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:22:45.844Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:23:12.170Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:23:13.136Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:23:24.603Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGOUT",
+      "details": "Refresh token cleared & cookie removed"
     }
-  ]
+  ],
+  "metrics": {
+    "csrf_403": 19,
+    "login_success": 15,
+    "failed_login": 3,
+    "failed_mfa": 1,
+    "auth_401": 2,
+    "rate_limit_login_hits": 1
+  },
+  "sessions": []
 }
