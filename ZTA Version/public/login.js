@@ -4,6 +4,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const otpForm = document.getElementById("otpForm");
 
+  // Ensure a stable deviceId for device binding
+  function getOrCreateDeviceId() {
+    let id = localStorage.getItem("deviceId");
+    if (!id) {
+      id = "dev_" + crypto.getRandomValues(new Uint32Array(2)).join("-");
+      localStorage.setItem("deviceId", id);
+    }
+    return id;
+  }
+  const deviceId = getOrCreateDeviceId();
+
   let currentEmail = "";
 
   // Step 1: Login with email & password
@@ -36,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Step 2: Verify Authenticator code
+  // Step 2: Verify Authenticator code (send deviceId)
   otpForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -46,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const response = await fetch("http://localhost:3000/verify-mfa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: currentEmail, token: otp })
+        body: JSON.stringify({ email: currentEmail, token: otp, deviceId })
       });
 
       const data = await response.json();
