@@ -1,13 +1,11 @@
 // --- Normalize/migrate localStorage keys (runs once) ---
 (function normalizeAuthKeys() {
-  // If older code stored jwtToken, upgrade it to accessToken
   const oldJwt = localStorage.getItem("jwtToken");
   if (oldJwt && !localStorage.getItem("accessToken")) {
     localStorage.setItem("accessToken", oldJwt);
     localStorage.removeItem("jwtToken");
   }
 
-  // If older code stored 'user' instead of 'userRole', migrate it
   const oldRole = localStorage.getItem("user");
   if (oldRole && !localStorage.getItem("userRole")) {
     localStorage.setItem("userRole", oldRole);
@@ -15,9 +13,15 @@
   }
 })();
 
-// Read the unified keys
+// 📌 Ensure deviceId exists (new for binding)
+if (!localStorage.getItem("deviceId")) {
+  localStorage.setItem("deviceId", crypto.randomUUID());
+}
+
+// Read tokens/role
 const token = localStorage.getItem("accessToken");
 const role  = localStorage.getItem("userRole");
+const deviceId = localStorage.getItem("deviceId");
 
 if (!token || role !== "admin") {
   alert("Access denied: Admins only");
@@ -26,7 +30,10 @@ if (!token || role !== "admin") {
 
 // Display admin's name
 fetch("http://localhost:3000/api/profile", {
-  headers: { Authorization: "Bearer " + token }
+  headers: { 
+    Authorization: "Bearer " + token,
+    "X-Device-Id": deviceId     // 👈 send deviceId
+  }
 })
   .then(res => {
     if (!res.ok) throw new Error("Unauthorized");
@@ -36,11 +43,11 @@ fetch("http://localhost:3000/api/profile", {
     document.getElementById("adminUserInfo").innerText = `Hello, ${data.user.name} (Admin)`;
   })
   .catch(() => {
-    alert("Session expired, please log in again.");
+    alert("Session expired or device mismatch, please log in again.");
     window.location.href = "login.html";
   });
 
-// ========== USERS ==========
+// ================== USERS ==================
 let usersData = [];
 let currentPage = 1;
 const rowsPerPage = 5;
@@ -89,7 +96,10 @@ function setupPagination(users) {
 
 function loadUsers() {
   fetch("http://localhost:3000/api/users", {
-    headers: { Authorization: "Bearer " + token }
+    headers: { 
+      Authorization: "Bearer " + token,
+      "X-Device-Id": deviceId
+    }
   })
     .then(res => res.json())
     .then(users => {
@@ -102,14 +112,21 @@ window.deleteUser = function(email) {
   if (!confirm(`Delete user ${email}?`)) return;
   fetch(`http://localhost:3000/api/users/${email}`, {
     method: "DELETE",
-    headers: { Authorization: "Bearer " + token }
+    headers: { 
+      Authorization: "Bearer " + token,
+      "X-Device-Id": deviceId
+    }
   }).then(() => loadUsers());
 }
 
 window.changeRole = function(email, newRole) {
   fetch(`http://localhost:3000/api/users/${email}`, {
     method: "PUT",
-    headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+    headers: { 
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+      "X-Device-Id": deviceId
+    },
     body: JSON.stringify({ role: newRole })
   }).then(() => loadUsers());
 }
@@ -129,7 +146,10 @@ const logsTableBody = document.querySelector("#logsTable tbody");
 
 function loadLogs() {
   fetch("http://localhost:3000/api/logs", {
-    headers: { Authorization: "Bearer " + token }
+    headers: { 
+      Authorization: "Bearer " + token,
+      "X-Device-Id": deviceId
+    }
   })
     .then(res => res.json())
     .then(logs => {
@@ -162,7 +182,7 @@ document.getElementById("logSearchInput").addEventListener("input", function() {
   displayLogs(filtered);
 });
 
-// CSV Export (users & logs)
+// CSV Export
 document.getElementById("exportUsersBtn")?.addEventListener("click", () => {
   exportCSV(usersData, ["Name", "Email", "Role"]);
 });
@@ -208,6 +228,7 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("refreshToken");
   localStorage.removeItem("userRole");
+  localStorage.removeItem("deviceId");
   window.location.href = "login.html";
 });
 
