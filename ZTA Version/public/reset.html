@@ -2,42 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reset Password</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loginstyles.css">
 </head>
 <body>
-  <h2>Reset Password</h2>
-  <form id="resetForm">
-    <input type="email" id="email" placeholder="Enter your email" required><br>
-    <input type="text" id="token" placeholder="Enter reset token" required><br>
-    <input type="password" id="newPassword" placeholder="Enter new password" required><br>
-    <button type="submit">Reset Password</button>
-  </form>
+  <div class="auth-container">
+    <h2>Reset Password</h2>
+    <form id="resetForm">
+      <input type="password" id="newPassword" placeholder="New Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+      <button type="submit">Reset Password</button>
+    </form>
 
-  <p id="message"></p>
+    <p id="status" class="auth-status"></p>
+    <a href="login.html">Back to Login</a>
+  </div>
 
   <script>
+    // Extract token and email from URL
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+    const email = params.get("email");
+
+    if (!token || !email) {
+      document.getElementById("status").innerText = "Invalid reset link.";
+      document.getElementById("resetForm").style.display = "none";
+    }
+
     document.getElementById("resetForm").addEventListener("submit", async (e) => {
       e.preventDefault();
-      const email = document.getElementById("email").value;
-      const token = document.getElementById("token").value;
+
       const newPassword = document.getElementById("newPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (newPassword !== confirmPassword) {
+        return (document.getElementById("status").innerText = "Passwords do not match.");
+      }
 
       try {
-        const res = await fetch("http://localhost:3000/reset-password", {
+        const response = await fetch("http://localhost:3000/reset-password", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, token, newPassword })
         });
-        const data = await res.json();
 
-        if (res.ok) {
-          document.getElementById("message").innerText = "✅ Password reset successful. You can now login.";
-        } else {
-          document.getElementById("message").innerText = data.message || "Reset failed.";
+        const data = await response.json();
+        document.getElementById("status").innerText = data.message;
+
+        if (data.success) {
+          document.getElementById("status").innerText = "✅ Password reset successful! Redirecting...";
+          setTimeout(() => {
+            window.location.href = "login.html"; // redirect after success
+          }, 2000);
         }
       } catch (err) {
-        document.getElementById("message").innerText = "Server error.";
+        document.getElementById("status").innerText = "Error resetting password.";
         console.error(err);
       }
     });
