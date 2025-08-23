@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reset Password</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Reset Password</h2>
+  <form id="resetForm">
+    <input type="email" id="email" placeholder="Enter your email" required><br>
+    <input type="text" id="token" placeholder="Enter reset token" required><br>
+    <input type="password" id="newPassword" placeholder="Enter new password" required><br>
+    <button type="submit">Reset Password</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    document.getElementById("resetForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const token = document.getElementById("token").value;
+      const newPassword = document.getElementById("newPassword").value;
+
+      try {
+        const res = await fetch("http://localhost:3000/reset-password", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, token, newPassword })
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          document.getElementById("message").innerText = "✅ Password reset successful. You can now login.";
+        } else {
+          document.getElementById("message").innerText = data.message || "Reset failed.";
+        }
+      } catch (err) {
+        document.getElementById("message").innerText = "Server error.";
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
