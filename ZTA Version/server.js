@@ -1,11 +1,10 @@
-// server.js
-// =================================================
-// ✅ NEW: env + security headers + notes
-// =================================================
+
+
+// env + security headers + notes
+
 require("dotenv").config(); // loads .env if present (JWT_SECRET, REFRESH_SECRET, etc.)
 const IS_PROD = process.env.NODE_ENV === "production";
 
-// =================================================
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -17,25 +16,23 @@ const speakeasy = require("speakeasy");
 const qrcode = require("qrcode");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
-const cookieParser = require("cookie-parser"); // ✅ already present
-const helmet = require("helmet");             // ✅ NEW
+const cookieParser = require("cookie-parser"); 
+const helmet = require("helmet");             
 
 const app = express();
 const PORT = 3000;
 const saltRounds = 10;
 
-// ===== SECRETS (use env vars in production) =====
-// ✅ UPDATED: read from env if set, fallback to your existing strings (kept)
+// SECRETS (use env vars in production)
 const JWT_SECRET = process.env.JWT_SECRET || "your_super_secret_key";
 const REFRESH_SECRET = process.env.REFRESH_SECRET || "your_refresh_secret_key";
 
-// ===== LowDB setup =====
+// LowDB setup 
 const adapter = new FileSync(path.join(__dirname, "db.json"));
 const db = low(adapter);
-// ✅ UPDATED: added metrics + sessions while keeping your original keys
 db.defaults({ users: [], logs: [], metrics: {}, sessions: [] }).write();
 
-// ===== Audit Log Helper =====
+//  Audit Log Helper 
 function logEvent(userEmail, action, details = "") {
   const log = {
     timestamp: new Date().toISOString(),
@@ -47,13 +44,13 @@ function logEvent(userEmail, action, details = "") {
   console.log("📜 LOG:", log);
 }
 
-// ✅ NEW: tiny metrics bump helper (used sparingly, safe even if key missing)
+
 function bump(key) {
   const v = db.get("metrics").get(key).value() || 0;
   db.get("metrics").set(key, v + 1).write();
 }
 
-// ===== Client IP helper =====
+//  Client IP helper 
 function getClientIp(req) {
   return (req.headers["x-forwarded-for"]?.split(",")[0]?.trim())
       || req.socket?.remoteAddress
@@ -61,12 +58,10 @@ function getClientIp(req) {
       || "unknown";
 }
 
-/* =========================
-   RATE LIMIT & LOCKOUTS
-   ========================= */
+/* RATE LIMIT & LOCKOUTS */
 
-// --- Global IP burst limiter (200 requests/minute/IP) ---
-const ipBuckets = new Map(); // ip -> { count, resetAt }
+
+const ipBuckets = new Map(); 
 const GLOBAL_WINDOW_MS = 60 * 1000;
 const GLOBAL_MAX = 200;
 
@@ -178,9 +173,7 @@ function recordMFAFail(email) {
 }
 function clearMFAFails(email) { mfaFailMap.delete(email); }
 
-/* =========================
-   AUTH & RBAC
-   ========================= */
+/* AUTH & RBAC*/
 
 // Verify access token
 function verifyToken(req, res, next) {
@@ -236,11 +229,9 @@ function enforceKnownDevice(req, res, next) {
   next();
 }
 
-/* =========================
-   ✅ NEW: Security headers + CSRF
-   ========================= */
+/* NEW: Security headers + CSRF */
 
-// ✅ Helmet security headers (kept minimal with CSP & referrer policy)
+// Helmet security headers (kept minimal with CSP & referrer policy)
 app.use(helmet({
   contentSecurityPolicy: {
     useDefaults: true,
@@ -251,8 +242,8 @@ app.use(helmet({
   referrerPolicy: { policy: "no-referrer" }
 }));
 
-// ✅ CSRF: issue cookie + verify header on state-changing requests
-// === CSRF helpers ===
+//  CSRF: issue cookie + verify header on state-changing requests
+// CSRF helpers 
 function issueCsrf(res) {
   const csrf = crypto.randomBytes(16).toString("hex");
   res.cookie("csrf", csrf, {
@@ -294,20 +285,18 @@ function csrfCheck(req, res, next) {
 }
 
 
-/* =========================
-   APP
-   ========================= */
+/* APP*/
 
-// ✅ CORS + Cookies
+// CORS + Cookies
 app.use(cors({
-  origin: "http://localhost:3000", // adjust if your frontend is on a different origin
-  credentials: true               // allow cookies
+  origin: "http://localhost:3000", 
+  credentials: true               
 }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(globalRateLimiter);
 
-// ✅ Apply CSRF check after parsers (protects POST/PUT/PATCH/DELETE globally)
+//  Apply CSRF check after parsers (protects POST/PUT/PATCH/DELETE globally)
 app.use(csrfCheck);
 
 // Static / default route
@@ -483,16 +472,16 @@ app.post("/verify-mfa", loginRateLimiter, (req, res) => {
   // Persist latest refresh token (rotation anchor)
   db.get("users").find({ email: user.email }).assign({ refreshToken }).write();
 
-  // ✅ Set refresh token as HttpOnly cookie (NOT in JSON)
+  // Set refresh token as HttpOnly cookie (NOT in JSON)
   res.cookie("refreshToken", refreshToken, {
     httpOnly: true,
-    secure: IS_PROD,   // ✅ true in production (HTTPS). stays false in local dev
+    secure: IS_PROD,   
     sameSite: "Strict",
     path: "/",
     maxAge: 30 * 24 * 60 * 60 * 1000
   });
 
-  // ✅ NEW: issue CSRF cookie now that we have a session
+  //  NEW: issue CSRF cookie now that we have a session
   const csrf = issueCsrf(res);
 
   logEvent(
@@ -512,7 +501,7 @@ app.post("/verify-mfa", loginRateLimiter, (req, res) => {
 
 // REFRESH TOKEN (rotation) — reads cookie, rotates cookie
 app.post("/refresh", (req, res) => {
-  const refreshToken = req.cookies.refreshToken; // ✅ read from cookie
+  const refreshToken = req.cookies.refreshToken; // read from cookie
   if (!refreshToken) {
     bump("refresh_401");
     return res.status(401).json({ message: "Refresh token missing" });
@@ -544,7 +533,7 @@ app.post("/refresh", (req, res) => {
 
     db.get("users").find({ email: user.email }).assign({ refreshToken: newRefreshToken }).write();
 
-    // ✅ Rotate cookie
+    // Rotate cookie
     res.cookie("refreshToken", newRefreshToken, {
       httpOnly: true,
       secure: IS_PROD,
@@ -553,7 +542,7 @@ app.post("/refresh", (req, res) => {
       maxAge: 30 * 24 * 60 * 60 * 1000
     });
 
-    // ✅ Re-issue CSRF to keep it fresh
+    //  Re-issue CSRF to keep it fresh
     issueCsrf(res);
 
     logEvent(user.email, "TOKEN_REFRESHED", "Refresh token rotated");
@@ -588,7 +577,7 @@ app.get("/api/profile", verifyToken, enforceKnownDevice, (req, res) => {
   }
   logEvent(req.user.email, "PROFILE_VIEW", "User accessed profile");
   res.json({
-    message: "Access granted ✅",
+    message: "Access granted ",
     user: { name: user.name, email: user.email, role: user.role }
   });
 });
@@ -635,15 +624,13 @@ app.get("/api/logs", verifyToken, enforceKnownDevice, authorizeRoles("admin"), (
   res.json(logs);
 });
 
-// ✅ NEW: metrics readout for your dissertation figures
+//metrics readout for your dissertation figures
 app.get("/metrics", verifyToken, enforceKnownDevice, authorizeRoles("admin"), (req, res) => {
   res.json(db.get("metrics").value());
 });
 
-// =================================================
+
 // EMAIL TRANSPORTER for Forgot Password
-// =================================================
-// ✅ NOTE: you can move these to env vars too: MAIL_USER / MAIL_PASS
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -652,9 +639,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// =================================================
 // Forgot Password - Send Reset Email
-// =================================================
 app.post("/forgot-password", (req, res) => {
   const { email } = req.body;
   const user = db.get("users").find({ email }).value();
@@ -691,9 +676,7 @@ app.post("/forgot-password", (req, res) => {
   });
 });
 
-// =================================================
 // Reset Password
-// =================================================
 app.post("/reset-password", async (req, res) => {
   const { email, token, newPassword } = req.body;
   const user = db.get("users").find({ email }).value();
