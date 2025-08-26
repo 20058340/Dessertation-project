@@ -1,15 +1,14 @@
 // ===========================
-// admin.js (full)
+// admin.js (cleaned, CSP-safe)
 // ===========================
 
-// --- Normalize/migrate localStorage keys (runs once) ---
+// --- Normalize localStorage keys (once) ---
 (function normalizeAuthKeys() {
   const oldJwt = localStorage.getItem("jwtToken");
   if (oldJwt && !localStorage.getItem("accessToken")) {
     localStorage.setItem("accessToken", oldJwt);
     localStorage.removeItem("jwtToken");
   }
-
   const oldRole = localStorage.getItem("user");
   if (oldRole && !localStorage.getItem("userRole")) {
     localStorage.setItem("userRole", oldRole);
@@ -17,7 +16,7 @@
   }
 })();
 
-// --- Stable device id for device binding ---
+// --- Stable device id ---
 function getOrCreateDeviceId() {
   let id = localStorage.getItem("deviceId");
   if (!id) {
@@ -34,7 +33,7 @@ function getOrCreateDeviceId() {
 }
 const DEVICE_ID = getOrCreateDeviceId();
 
-// --- cookie helper ---
+// --- Cookie helper ---
 function getCookie(name) {
   return document.cookie
     .split("; ")
@@ -42,18 +41,14 @@ function getCookie(name) {
     ?.split("=")[1];
 }
 
-// --- central API wrapper: always sends device id; adds CSRF on writes; auto-refresh on 401 ---
+// --- Central API wrapper ---
 async function api(url, { method = "GET", body, headers = {} } = {}) {
   const h = { "Content-Type": "application/json", ...headers };
-
-  // Always send device id (GET and POST)
   h["X-Device-Id"] = DEVICE_ID;
 
-  // Bearer, if present
   const token = localStorage.getItem("accessToken");
   if (token) h["Authorization"] = "Bearer " + token;
 
-  // CSRF for state-changing requests
   if (["POST", "PUT", "PATCH", "DELETE"].includes(method)) {
     const csrf = getCookie("csrf");
     if (csrf) h["X-CSRF-Token"] = csrf;
@@ -66,9 +61,8 @@ async function api(url, { method = "GET", body, headers = {} } = {}) {
     body: body ? JSON.stringify(body) : undefined,
   });
 
-  // try one automatic refresh on 401
   if (res.status === 401) {
-    const r = await fetch("http://localhost:3000/refresh", {
+    const r = await fetch("/refresh", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -81,16 +75,14 @@ async function api(url, { method = "GET", body, headers = {} } = {}) {
       const data = await r.json();
       if (data?.token) {
         localStorage.setItem("accessToken", data.token);
-        // retry original request once
         return api(url, { method, body, headers });
       }
     }
   }
-
   return res;
 }
 
-// --- access guard ---
+// --- Access guard ---
 const token = localStorage.getItem("accessToken");
 const role = localStorage.getItem("userRole");
 if (!token || role !== "admin") {
@@ -98,22 +90,21 @@ if (!token || role !== "admin") {
   window.location.href = "login.html";
 }
 
-// --- greet admin (also confirms device binding) ---
-api("http://localhost:3000/api/profile")
+// --- Greet admin ---
+api("/api/profile")
   .then((res) => {
     if (!res.ok) throw new Error("Unauthorized");
     return res.json();
   })
   .then((data) => {
-    const el = document.getElementById("adminUserInfo");
-    if (el) el.innerText = `Hello, ${data.user.name} (Admin)`;
+    document.getElementById("adminUserInfo").innerText = `Hello, ${data.user.name} (Admin)`;
   })
   .catch(() => {
     alert("Session expired or device mismatch, please log in again.");
     window.location.href = "login.html";
   });
 
-// ================== USERS ==================
+// ========== USERS ==========
 let usersData = [];
 let currentPage = 1;
 const rowsPerPage = 5;
@@ -129,17 +120,29 @@ function displayUsers(users, page) {
 
   paginatedUsers.forEach((user) => {
     const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${user.name}</td>
-      <td>${user.email}</td>
-      <td>
-        <select onchange="changeRole('${user.email}', this.value)">
-          <option value="user" ${user.role === "user" ? "selected" : ""}>User</option>
-          <option value="admin" ${user.role === "admin" ? "selected" : ""}>Admin</option>
-        </select>
-      </td>
-      <td><button class="delete-btn" onclick="deleteUser('${user.email}')">Delete</button></td>
-    `;
+
+    const roleSelect = document.createElement("select");
+    ["user", "admin"].forEach((r) => {
+      const opt = document.createElement("option");
+      opt.value = r;
+      opt.text = r.charAt(0).toUpperCase() + r.slice(1);
+      if (user.role === r) opt.selected = true;
+      roleSelect.appendChild(opt);
+    });
+    roleSelect.addEventListener("change", () => changeRole(user.email, roleSelect.value));
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", () => deleteUser(user.email));
+
+    row.innerHTML = `<td>${user.name}</td><td>${user.email}</td>`;
+    const roleCell = document.createElement("td");
+    const actionCell = document.createElement("td");
+    roleCell.appendChild(roleSelect);
+    actionCell.appendChild(deleteBtn);
+    row.appendChild(roleCell);
+    row.appendChild(actionCell);
     usersTableBody.appendChild(row);
   });
   setupPagination(users);
@@ -161,11 +164,8 @@ function setupPagination(users) {
 }
 
 function loadUsers() {
-  api("http://localhost:3000/api/users")
-    .then((res) => {
-      if (!res.ok) throw new Error("Failed to load users");
-      return res.json();
-    })
+  api("/api/users")
+    .then((res) => res.json())
     .then((users) => {
       usersData = users;
       displayUsers(usersData, currentPage);
@@ -173,36 +173,32 @@ function loadUsers() {
     .catch((e) => console.error(e));
 }
 
-window.deleteUser = function (email) {
+function deleteUser(email) {
   if (!confirm(`Delete user ${email}?`)) return;
-  api(`http://localhost:3000/api/users/${encodeURIComponent(email)}`, {
-    method: "DELETE",
-  })
+  api(`/api/users/${encodeURIComponent(email)}`, { method: "DELETE" })
     .then((res) => {
-      if (!res.ok) throw new Error("Delete failed");
-      loadUsers();
+      if (res.ok) loadUsers();
+      else throw new Error("Delete failed");
     })
-    .catch((e) => alert(e.message || "Delete failed"));
-};
+    .catch((e) => alert(e.message));
+}
 
-window.changeRole = function (email, newRole) {
-  api(`http://localhost:3000/api/users/${encodeURIComponent(email)}`, {
+function changeRole(email, newRole) {
+  api(`/api/users/${encodeURIComponent(email)}`, {
     method: "PUT",
     body: { role: newRole },
   })
     .then((res) => {
-      if (!res.ok) throw new Error("Role update failed");
-      loadUsers();
+      if (res.ok) loadUsers();
+      else throw new Error("Role update failed");
     })
-    .catch((e) => alert(e.message || "Role update failed"));
-};
+    .catch((e) => alert(e.message));
+}
 
 document.getElementById("searchInput")?.addEventListener("input", function () {
   const searchText = this.value.toLowerCase();
   const filtered = usersData.filter(
-    (user) =>
-      user.name.toLowerCase().includes(searchText) ||
-      user.email.toLowerCase().includes(searchText)
+    (u) => u.name.toLowerCase().includes(searchText) || u.email.toLowerCase().includes(searchText)
   );
   displayUsers(filtered, 1);
 });
@@ -212,11 +208,8 @@ let logsData = [];
 const logsTableBody = document.querySelector("#logsTable tbody");
 
 function loadLogs() {
-  api("http://localhost:3000/api/logs")
-    .then((res) => {
-      if (!res.ok) throw new Error("Failed to load logs");
-      return res.json();
-    })
+  api("/api/logs")
+    .then((res) => res.json())
     .then((logs) => {
       logsData = logs;
       displayLogs(logsData);
@@ -232,8 +225,7 @@ function displayLogs(logs) {
       <td>${new Date(log.timestamp).toLocaleString()}</td>
       <td>${log.user}</td>
       <td>${log.action}</td>
-      <td>${log.details || "-"}</td>
-    `;
+      <td>${log.details || "-"}</td>`;
     logsTableBody.appendChild(row);
   });
 }
@@ -241,29 +233,26 @@ function displayLogs(logs) {
 document.getElementById("logSearchInput")?.addEventListener("input", function () {
   const searchText = this.value.toLowerCase();
   const filtered = logsData.filter(
-    (log) =>
-      (log.user || "").toLowerCase().includes(searchText) ||
-      (log.action || "").toLowerCase().includes(searchText) ||
-      ((log.details || "").toLowerCase().includes(searchText))
+    (l) =>
+      (l.user || "").toLowerCase().includes(searchText) ||
+      (l.action || "").toLowerCase().includes(searchText) ||
+      (l.details || "").toLowerCase().includes(searchText)
   );
   displayLogs(filtered);
 });
 
-// CSV Export (fixed mapping)
+// CSV Export
 document.getElementById("exportUsersBtn")?.addEventListener("click", () => {
-  exportCSV(
-    usersData,
-    ["Name", "Email", "Role"],
-    (u) => [u.name, u.email, u.role]
-  );
+  exportCSV(usersData, ["Name", "Email", "Role"], (u) => [u.name, u.email, u.role]);
 });
 
 document.getElementById("exportLogsBtn")?.addEventListener("click", () => {
-  exportCSV(
-    logsData,
-    ["Timestamp", "User", "Action", "Details"],
-    (l) => [l.timestamp, l.user, l.action, l.details || ""]
-  );
+  exportCSV(logsData, ["Timestamp", "User", "Action", "Details"], (l) => [
+    l.timestamp,
+    l.user,
+    l.action,
+    l.details || "",
+  ]);
 });
 
 function exportCSV(data, headers, rowMapper) {
@@ -294,16 +283,13 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   });
 });
 
-// Logout (use API so CSRF/device headers are sent)
+// Logout
 document.getElementById("logoutBtn")?.addEventListener("click", async () => {
   try {
-    const res = await api("http://localhost:3000/logout", { method: "POST" });
-    // clear client state regardless
+    await api("/logout", { method: "POST" });
   } catch {}
   localStorage.removeItem("accessToken");
   localStorage.removeItem("userRole");
-  // keep deviceId to maintain binding; remove only if you want to force re-bind
-  // localStorage.removeItem("deviceId");
   window.location.href = "login.html";
 });
 

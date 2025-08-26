@@ -1,6 +1,4 @@
-// index.js — no inline JS; wires everything and keeps your original behavior
 
-// --- helpers ---
 function getCookie(name) {
   return document.cookie.split("; ").find(r => r.startsWith(name + "="))?.split("=")[1];
 }
@@ -82,8 +80,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     try { await api("http://localhost:3000/logout", { method: "POST" }); } catch {}
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userRole");
-    // keep deviceId so the device stays recognized; remove only if you want to force re-bind:
-    // localStorage.removeItem("deviceId");
     window.location.href = "login.html";
   });
 
@@ -101,11 +97,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!res.ok) throw new Error(String(res.status));
     const data = await res.json();
 
-    // Hello, {name}
     const userInfo = document.getElementById("userInfo");
     if (userInfo) userInfo.textContent = `Hello, ${data.user.name}!`;
-
-    // Use server role (source of truth); sync to localStorage too
     const role = data.user.role;
     localStorage.setItem("userRole", role);
 

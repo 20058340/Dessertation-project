@@ -1,6 +1,4 @@
-// ===========================
-// login.js (full)
-// ===========================
+
 console.log("login.js loaded");
 
 (function () {
@@ -75,7 +73,7 @@ console.log("login.js loaded");
 
     let currentEmail = "";
 
-    // ============== Step 1: Login with email & password ==============
+    //  Step 1: Login with email & password 
     loginForm?.addEventListener("submit", async function (e) {
       e.preventDefault();
 
@@ -106,7 +104,7 @@ console.log("login.js loaded");
       }
     });
 
-    // ============== Step 2: Verify Authenticator code ==============
+    //  Step 2: Verify Authenticator code 
     otpForm?.addEventListener("submit", async function (e) {
       e.preventDefault();
 
@@ -140,9 +138,7 @@ console.log("login.js loaded");
     });
   });
 
-  /* =========================
-     Helper: Token Refresh (manual)
-     ========================= */
+  /* Helper: Token Refresh (manual) */
   window.refreshAccessToken = async function () {
     try {
       const response = await fetch("http://localhost:3000/refresh", {
@@ -159,7 +155,7 @@ console.log("login.js loaded");
 
       if (response.ok && data.token) {
         localStorage.setItem("accessToken", data.token);
-        console.log("✅ Access token refreshed");
+        console.log("Access token refreshed");
         return data.token;
       } else {
         console.warn("Failed to refresh token:", data.message || "Unknown error");
