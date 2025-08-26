@@ -3,20 +3,36 @@
     {
       "name": "Barath Mani",
       "email": "barathm0114@gmail.com",
-      "password": "$2b$10$mcr21VcALDyOfPwT1/oIEuuNYXAA4ZnSbJ8rULly.ecQvTJNIvRq2",
+      "password": "$2b$10$D9kgWUmr8dT/IKjo7mjEyuYNxw3XQragyp3BjED0A6G9a9jMQyrE.",
       "role": "admin",
       "mfa": {
         "base32": "JAUEK7KTHBOVKZCTII4UST2XMIXUKJJ6JQ2WQY2BOM3FES3EIYZA"
       },
       "refreshToken": null,
       "devices": [
-        "dev_2850156236-1439788493"
+        "dev_1456491452-3496572972"
       ],
       "ips": [
         "::ffff:127.0.0.1"
       ],
       "resetToken": null,
       "resetExpires": null
+    },
+    {
+      "name": "Barath",
+      "email": "barath0000@gmail.com",
+      "password": "$2b$10$qoMQPRbARfRxayLSyWZYE./6Qp1eflLCd2rfYbyF12Z5I266nWea.",
+      "role": "user",
+      "mfa": {
+        "base32": "ORFCCXTBIV6VCKCCOIUHU426MRJC6XJUORGFQPCBEY3HGNLNJJKQ"
+      },
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhcmF0aDAwMDBAZ21haWwuY29tIiwiaWF0IjoxNzU2MjExNzM5LCJleHAiOjE3NTg4MDM3Mzl9.xbYXsoTqg1Z6ZPbdgJHmFpTpdSZFQYZaMsBFSBnAw2Q",
+      "devices": [
+        "dev_1456491452-3496572972"
+      ],
+      "ips": [
+        "::ffff:127.0.0.1"
+      ]
     }
   ],
   "otps": [],
@@ -7376,15 +7392,3759 @@
       "user": "barathm0114@gmail.com",
       "action": "LOGOUT",
       "details": "Refresh token cleared & cookie removed"
+    },
+    {
+      "timestamp": "2025-08-23T13:30:59.880Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T13:31:15.814Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:31:16.601Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:40:54.192Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:40:54.204Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:41:22.021Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:41:23.393Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:42:29.569Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:42:29.577Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:42:33.713Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:42:33.861Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:42:34.055Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:43:22.433Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:43:22.443Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T13:46:47.750Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-23T13:46:51.781Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T13:46:53.069Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T13:46:54.954Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T13:46:56.303Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T13:46:57.187Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ACCOUNT_LOCKED_PASSWORD",
+      "details": "Lock for 15 min"
+    },
+    {
+      "timestamp": "2025-08-23T13:46:57.192Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T13:46:57.978Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:46:58.790Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:47:04.399Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:47:17.240Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T13:47:28.285Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T13:47:28.994Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:47:30.766Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T13:47:30.774Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T14:48:49.584Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T14:48:49.618Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T14:48:49.641Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T14:48:49.664Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T14:48:49.686Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:16:27.193Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-23T15:16:29.081Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-23T15:16:52.938Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device added. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:16:53.698Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T15:16:56.501Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-23T15:16:56.508Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.810Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.820Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.829Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.837Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.848Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.858Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.868Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.878Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.892Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.902Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.912Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.920Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.931Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.941Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.951Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.961Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.976Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.986Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:51.996Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.005Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.015Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.024Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.033Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.042Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.052Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.063Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.073Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.087Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.098Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.129Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.157Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.191Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.227Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.260Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.295Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.325Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.364Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.394Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-23T15:22:52.428Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-24T15:08:49.150Z",
+      "user": "barath0000@gmail.com",
+      "action": "REGISTER_SUCCESS",
+      "details": "Role: user"
+    },
+    {
+      "timestamp": "2025-08-24T15:09:23.766Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-24T15:09:35.347Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device added. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-24T15:09:36.234Z",
+      "user": "barath0000@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-24T15:10:53.296Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-24T15:10:56.854Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-24T15:11:12.448Z",
+      "user": "barathm0114@gmail.com",
+      "action": "MFA_FAILED",
+      "details": "Invalid format"
+    },
+    {
+      "timestamp": "2025-08-24T15:11:23.926Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-24T15:11:25.531Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-24T15:11:41.743Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-24T15:12:01.920Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-24T15:54:10.968Z",
+      "user": "barath0000@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-24T15:54:11.013Z",
+      "user": "barath0000@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-24T15:54:13.950Z",
+      "user": "barath0000@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-24T15:58:29.747Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGOUT",
+      "details": "Refresh token cleared & cookie removed"
+    },
+    {
+      "timestamp": "2025-08-24T15:58:39.007Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-24T15:58:41.778Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-24T15:58:57.346Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-24T15:58:58.196Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-24T15:59:00.680Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-24T15:59:00.693Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-24T15:59:06.282Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-24T16:17:02.186Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-24T16:17:02.223Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-24T19:35:38.125Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-24T19:35:38.151Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-24T19:35:39.468Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGOUT",
+      "details": "Refresh token cleared & cookie removed"
+    },
+    {
+      "timestamp": "2025-08-25T11:50:30.759Z",
+      "user": "20058340@mydbs.ie",
+      "action": "REGISTER_SUCCESS",
+      "details": "Role: admin"
+    },
+    {
+      "timestamp": "2025-08-25T11:52:45.012Z",
+      "user": "20058340@mydbs.ie",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T11:53:51.968Z",
+      "user": "20058340@mydbs.ie",
+      "action": "REGISTER_FAILED",
+      "details": "User already exists"
+    },
+    {
+      "timestamp": "2025-08-25T11:54:36.024Z",
+      "user": "20058340@mydbs.ie",
+      "action": "REGISTER_FAILED",
+      "details": "User already exists"
+    },
+    {
+      "timestamp": "2025-08-25T11:55:28.889Z",
+      "user": "20058340@mydbs.ie",
+      "action": "REGISTER_FAILED",
+      "details": "User already exists"
+    },
+    {
+      "timestamp": "2025-08-25T11:55:56.751Z",
+      "user": "20058340@mydbs.ie",
+      "action": "REGISTER_FAILED",
+      "details": "User already exists"
+    },
+    {
+      "timestamp": "2025-08-25T11:56:11.533Z",
+      "user": "20058340@mydbs.ie",
+      "action": "REGISTER_FAILED",
+      "details": "User already exists"
+    },
+    {
+      "timestamp": "2025-08-25T11:57:00.630Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T11:57:06.086Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T11:57:16.905Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T11:57:17.824Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T11:57:19.573Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T11:57:19.579Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T11:58:00.934Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T11:58:00.946Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T11:58:01.531Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T11:58:01.552Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T11:58:01.721Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T11:58:01.732Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T11:58:01.887Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T11:58:01.912Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T11:58:02.070Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T11:58:02.091Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T11:58:02.284Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T11:58:02.307Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T11:58:58.623Z",
+      "user": "20058340@mydbs.ie",
+      "action": "REGISTER_SUCCESS",
+      "details": "Role: user"
+    },
+    {
+      "timestamp": "2025-08-25T11:59:32.946Z",
+      "user": "20058340@mydbs.ie",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T11:59:39.526Z",
+      "user": "20058340@mydbs.ie",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device added. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T11:59:45.376Z",
+      "user": "20058340@mydbs.ie",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T12:00:02.964Z",
+      "user": "20058340@mydbs.ie",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T12:01:53.590Z",
+      "user": "barath@gmail.com",
+      "action": "REGISTER_SUCCESS",
+      "details": "Role: user"
+    },
+    {
+      "timestamp": "2025-08-25T12:02:56.229Z",
+      "user": "20058340@mydbs.ie",
+      "action": "REGISTER_SUCCESS",
+      "details": "Role: user"
+    },
+    {
+      "timestamp": "2025-08-25T12:03:22.786Z",
+      "user": "20058340@mydbs.ie",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T12:03:31.727Z",
+      "user": "20058340@mydbs.ie",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device added. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T12:03:34.202Z",
+      "user": "20058340@mydbs.ie",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T12:10:45.484Z",
+      "user": "20058340@mydbs.ie",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T12:10:45.758Z",
+      "user": "20058340@mydbs.ie",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T12:10:45.911Z",
+      "user": "20058340@mydbs.ie",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T12:10:46.206Z",
+      "user": "20058340@mydbs.ie",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T12:10:46.538Z",
+      "user": "20058340@mydbs.ie",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T12:11:24.136Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T12:12:01.071Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T12:12:38.439Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T12:20:38.355Z",
+      "user": "barathm0114@gmail.com",
+      "action": "MFA_FAILED",
+      "details": "Invalid/expired code"
+    },
+    {
+      "timestamp": "2025-08-25T12:20:53.465Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T12:20:56.779Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T12:21:09.981Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T12:21:19.205Z",
+      "user": "barathm0114@gmail.com",
+      "action": "MFA_FAILED",
+      "details": "Invalid/expired code"
+    },
+    {
+      "timestamp": "2025-08-25T12:21:33.968Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T12:21:52.412Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T12:54:54.911Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T12:54:54.946Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T12:54:54.963Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T12:54:54.981Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T12:56:48.078Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T13:01:33.920Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:01:33.948Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T13:01:36.855Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:01:40.402Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:01:41.700Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGOUT",
+      "details": "Refresh token cleared & cookie removed"
+    },
+    {
+      "timestamp": "2025-08-25T13:01:45.737Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T13:01:48.147Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T13:01:50.036Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T13:01:51.850Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T13:01:53.300Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ACCOUNT_LOCKED_PASSWORD",
+      "details": "Lock for 15 min"
+    },
+    {
+      "timestamp": "2025-08-25T13:01:53.306Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T13:01:55.272Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:02:16.615Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:03:58.738Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:04:15.646Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:14:20.318Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T13:14:26.139Z",
+      "user": "barathm0114@gmail.com",
+      "action": "MFA_FAILED",
+      "details": "Invalid format"
+    },
+    {
+      "timestamp": "2025-08-25T13:14:29.061Z",
+      "user": "barathm0114@gmail.com",
+      "action": "MFA_FAILED",
+      "details": "Invalid/expired code"
+    },
+    {
+      "timestamp": "2025-08-25T13:14:30.268Z",
+      "user": "barathm0114@gmail.com",
+      "action": "MFA_FAILED",
+      "details": "Invalid/expired code"
+    },
+    {
+      "timestamp": "2025-08-25T13:14:31.363Z",
+      "user": "barathm0114@gmail.com",
+      "action": "MFA_FAILED",
+      "details": "Invalid/expired code"
+    },
+    {
+      "timestamp": "2025-08-25T13:14:32.234Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:14:35.284Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:15:35.304Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:18:48.276Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:19:02.627Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T13:19:21.864Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:19:22.645Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:19:49.578Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:19:49.584Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T13:19:50.834Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T13:35:03.932Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T13:38:11.973Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device added. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:38:12.931Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:43:37.834Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:45:27.167Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T13:45:29.350Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T13:45:43.910Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device added. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T13:45:45.075Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:48:25.341Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:51:06.766Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:54:51.269Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T13:56:22.860Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGOUT",
+      "details": "Refresh token cleared & cookie removed"
+    },
+    {
+      "timestamp": "2025-08-25T14:00:33.491Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T14:00:35.859Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T14:00:45.838Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device added. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T14:00:46.364Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:02:33.438Z",
+      "user": "barathm0114@gmail.com",
+      "action": "DEVICE_BLOCKED",
+      "details": "Unknown device: dev_878670955-3102298871"
+    },
+    {
+      "timestamp": "2025-08-25T14:05:09.180Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:05:09.191Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:05:10.649Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:05:20.848Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:05:20.859Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:05:22.369Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:05:22.377Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:05:22.685Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:05:22.692Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:05:23.482Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:34.148Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:34.164Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:34.268Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:34.276Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:34.518Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:34.581Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:34.684Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:34.735Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:34.846Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:34.879Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:35.040Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:35.080Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:35.204Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:35.212Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:35.375Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:35.382Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:35.821Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:35.835Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:35.940Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:35.966Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:36.181Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:36.189Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:36.275Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:36.283Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:36.447Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:36.454Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:36.624Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:36.632Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:36.797Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:36.806Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T14:19:38.462Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:38.670Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:38.780Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:38.978Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:39.144Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:39.329Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:39.515Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:39.669Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:39.853Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:40.017Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:19:40.224Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:31:05.593Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:32:34.032Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:36:02.255Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T14:36:03.575Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T14:36:14.857Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T14:36:15.928Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:41:49.854Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:41:50.172Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:41:50.730Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:44:48.826Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGOUT",
+      "details": "Refresh token cleared & cookie removed"
+    },
+    {
+      "timestamp": "2025-08-25T14:45:58.780Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T14:46:02.100Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T14:46:05.455Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T14:47:12.980Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T14:47:24.851Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T14:47:25.763Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:47:52.224Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:53:50.528Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:53:51.696Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:59:48.679Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:59:49.081Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T14:59:49.952Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:05:50.918Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T15:05:51.056Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:06:19.248Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:06:43.670Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:09:20.312Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:14:33.412Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:18:16.712Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:18:31.390Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:18:31.743Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:18:32.258Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:20:45.794Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:31:13.797Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T15:31:47.522Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T15:31:48.183Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:36:58.884Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:36:59.444Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:37:00.437Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:37:13.241Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T15:37:14.763Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T15:37:25.194Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T15:37:26.134Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:56:41.829Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T15:56:41.986Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:56:46.059Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T15:57:21.628Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-25T15:57:22.787Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T15:57:37.926Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T15:57:38.577Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:01:54.505Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:02:52.417Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T16:08:40.187Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T16:09:49.282Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T16:10:30.432Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:10:48.557Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T16:17:49.949Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T16:30:53.972Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T16:30:54.014Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:30:59.410Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:30:59.904Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:33:31.988Z",
+      "user": "barathm0114@gmail.com",
+      "action": "TOKEN_REFRESHED",
+      "details": "Refresh token rotated"
+    },
+    {
+      "timestamp": "2025-08-25T16:39:03.662Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:39:03.704Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T16:39:06.367Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-25T16:42:01.645Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGOUT",
+      "details": "Refresh token cleared & cookie removed"
+    },
+    {
+      "timestamp": "2025-08-25T16:43:27.749Z",
+      "user": "barathm0114@gmail.com",
+      "action": "FORGOT_PASSWORD_REQUEST",
+      "details": "Reset link sent by email"
+    },
+    {
+      "timestamp": "2025-08-25T16:45:27.879Z",
+      "user": "barathm0114@gmail.com",
+      "action": "RESET_PASSWORD_SUCCESS",
+      "details": "Password updated"
+    },
+    {
+      "timestamp": "2025-08-25T16:45:55.073Z",
+      "user": "barathm0114@gmail.com",
+      "action": "RESET_PASSWORD_FAILED",
+      "details": "Invalid or expired token"
+    },
+    {
+      "timestamp": "2025-08-25T16:45:55.891Z",
+      "user": "barathm0114@gmail.com",
+      "action": "RESET_PASSWORD_FAILED",
+      "details": "Invalid or expired token"
+    },
+    {
+      "timestamp": "2025-08-25T16:48:40.154Z",
+      "user": "barathm0114@gmail.com",
+      "action": "RESET_PASSWORD_FAILED",
+      "details": "Invalid or expired token"
+    },
+    {
+      "timestamp": "2025-08-25T16:52:48.689Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:02.049Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:02.949Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.711Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.724Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.742Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.759Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.773Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.786Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.806Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.819Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.833Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.846Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.860Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.873Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.886Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.898Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.910Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.920Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.933Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.945Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.955Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.966Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.979Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.988Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:16.998Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.007Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.016Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.026Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.041Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.053Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.066Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.081Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.094Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.107Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.118Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.130Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.142Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.155Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.166Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.179Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.193Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.207Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.219Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.233Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.247Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.260Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.271Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.283Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.296Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.308Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.318Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.327Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.340Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.350Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.393Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.444Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.478Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.494Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.520Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.533Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.544Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.554Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.564Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.573Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.583Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.593Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.603Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.617Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.633Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.647Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.664Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.678Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.695Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.712Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.726Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.752Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.780Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.803Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.827Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.842Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.857Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.879Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.896Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.909Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.926Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.938Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.951Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.965Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:17.984Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.002Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.013Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.030Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.046Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.064Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.078Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.092Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.108Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.124Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.139Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.152Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.167Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.179Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.198Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.230Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.241Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.254Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.272Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.293Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.310Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.328Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.339Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.351Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.364Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.379Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.409Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.424Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.448Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.479Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.508Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.523Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.541Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.565Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.581Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.593Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.610Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.647Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.685Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.699Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.731Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.767Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.788Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.811Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.828Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.870Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.893Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.919Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.937Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.957Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.973Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:18.990Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.011Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.030Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.043Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.057Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.071Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.082Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.097Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.112Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.140Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.156Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.166Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.175Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.187Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.200Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.222Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.247Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.358Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.423Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.476Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.556Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.599Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.642Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.702Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.724Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.749Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.791Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.816Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.838Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.862Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.892Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.914Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.947Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:19.984Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.019Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.065Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.091Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.109Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.146Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.178Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.216Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.243Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.291Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.334Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.391Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.427Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.474Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.508Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.547Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.587Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.641Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.675Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.700Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.750Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.864Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.897Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.946Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:20.988Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.021Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.063Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.087Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.122Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.148Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.174Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.194Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.216Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.237Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.259Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.282Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.300Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.327Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.346Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.360Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.372Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.382Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.391Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.404Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.413Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.422Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.433Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.466Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.511Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.541Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.585Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.606Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.628Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.655Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.679Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.694Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.712Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.735Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.763Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-25T16:53:21.784Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_GLOBAL",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-26T12:10:28.161Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-26T12:10:45.275Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-26T12:10:45.979Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:10:47.863Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:10:47.875Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:18:06.564Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:18:06.580Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:18:11.262Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:18:11.275Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:18:11.484Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:18:11.493Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:18:11.720Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:18:11.728Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:18:11.863Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:18:11.871Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:18:12.084Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:18:12.093Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:23:52.568Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-26T12:24:10.026Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-26T12:24:10.715Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:24:23.451Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:24:29.571Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:24:29.580Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:24:44.131Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:24:44.140Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:24:45.227Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:24:45.238Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:24:56.142Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:24:56.149Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:24:56.941Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:24:56.951Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:24:58.257Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_LOGS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:24:58.807Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:25:01.298Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_UPDATE_ROLE",
+      "details": "Changed 20058340@mydbs.ie to admin"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:01.310Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:25:02.669Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_UPDATE_ROLE",
+      "details": "Changed 20058340@mydbs.ie to user"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:02.681Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:25:05.444Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_DELETE_USER",
+      "details": "Deleted: 20058340@mydbs.ie"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:05.460Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:25:10.441Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGOUT",
+      "details": "Refresh token cleared & cookie removed"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:16.511Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:24.750Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:25.473Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:27.224Z",
+      "user": "barathm0114@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:27.232Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:25:30.625Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_UPDATE_ROLE",
+      "details": "Changed barath0000@gmail.com to admin"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:30.637Z",
+      "user": "barathm0114@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:25:34.697Z",
+      "user": "barathm0114@gmail.com",
+      "action": "LOGOUT",
+      "details": "Refresh token cleared & cookie removed"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:38.566Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-26T12:25:48.847Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-26T12:26:15.288Z",
+      "user": "SYSTEM",
+      "action": "RATE_LIMIT_LOGIN",
+      "details": "IP=::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-26T12:35:27.022Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_FAILED",
+      "details": "Incorrect password"
+    },
+    {
+      "timestamp": "2025-08-26T12:35:28.921Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_STEP1_SUCCESS",
+      "details": "Password correct, MFA required"
+    },
+    {
+      "timestamp": "2025-08-26T12:35:39.917Z",
+      "user": "barath0000@gmail.com",
+      "action": "LOGIN_SUCCESS",
+      "details": "MFA passed, tokens issued. Device recognized. IP: ::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-26T12:35:45.015Z",
+      "user": "barath0000@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:35:47.307Z",
+      "user": "barath0000@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
+    },
+    {
+      "timestamp": "2025-08-26T12:35:47.312Z",
+      "user": "barath0000@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:35:51.876Z",
+      "user": "barath0000@gmail.com",
+      "action": "ADMIN_UPDATE_ROLE",
+      "details": "Changed barath0000@gmail.com to user"
+    },
+    {
+      "timestamp": "2025-08-26T12:35:51.887Z",
+      "user": "barath0000@gmail.com",
+      "action": "ADMIN_VIEW_USERS",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-08-26T12:35:55.049Z",
+      "user": "barath0000@gmail.com",
+      "action": "PROFILE_VIEW",
+      "details": "User accessed profile"
     }
   ],
   "metrics": {
     "csrf_403": 19,
-    "login_success": 15,
-    "failed_login": 3,
-    "failed_mfa": 1,
-    "auth_401": 2,
-    "rate_limit_login_hits": 1
+    "login_success": 38,
+    "failed_login": 26,
+    "failed_mfa": 8,
+    "auth_401": 20,
+    "rate_limit_login_hits": 20,
+    "refresh_ok": 16,
+    "login_lockout": 2,
+    "rate_limit_hits": 86,
+    "refresh_mismatch": 3,
+    "device_403": 1,
+    "auth_403": 2
   },
   "sessions": []
 }
