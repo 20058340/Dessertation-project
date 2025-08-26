@@ -4,9 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Panel</title>
+
+  <!-- Correct path to admin.css (place it in /public/css/admin.css) -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="admin.css" /> <!-- Custom Admin Styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
 </head>
 <body>
   <!-- Top bar -->
@@ -35,7 +39,9 @@
     <div id="usersTab" class="tab-content active">
       <div class="admin-controls">
         <input type="text" id="searchInput" placeholder="Search by name or email..." />
-        <button id="exportUsersBtn" class="export-btn"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+        <button id="exportUsersBtn" class="export-btn">
+          <i class="fa-solid fa-file-csv"></i> Export CSV
+        </button>
       </div>
       <table id="usersTable" class="admin-table">
         <thead>
@@ -52,7 +58,9 @@
     <div id="logsTab" class="tab-content">
       <div class="admin-controls">
         <input type="text" id="logSearchInput" placeholder="Search logs..." />
-        <button id="exportLogsBtn" class="export-btn"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+        <button id="exportLogsBtn" class="export-btn">
+          <i class="fa-solid fa-file-csv"></i> Export CSV
+        </button>
       </div>
       <table id="logsTable" class="admin-table">
         <thead>
@@ -65,6 +73,7 @@
     </div>
   </div>
 
-  <script src="admin.js"></script> <!-- Custom Admin JS -->
+  <!-- External JS only, no inline scripts -->
+  <script src="admin.js" defer></script>
 </body>
 </html>
