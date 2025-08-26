@@ -5,7 +5,7 @@ const { Low } = require("lowdb");
 const { JSONFile } = require("lowdb/node");
 
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 
 // Database setup
 const dbFile = path.join(__dirname, "db.json");
